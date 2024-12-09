@@ -22,94 +22,121 @@
       min-height: 100vh;
       height: 100%;
       width: 100%;
-      justify-content: flex-start; /* Sayfayı üstten başlat */
+      justify-content: flex-start;
       align-items: center;
       position: relative;
       overflow-x: hidden;
     }
 
+    /* Header */
+    .header {
+      background-color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .header .logo {
+      margin-right: 20px;
+    }
+
+    .header .logo img {
+      height: 40px;
+    }
+
+    .header .menu {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: normal;
+      justify-content: flex-start;
+    }
+
+    .header .menu a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    .header .menu a:hover {
+      color: #d30412;
+    }
+
+    /* Logo Ortada ve Menü Gizleme (Mobil için) */
+    @media (max-width: 768px) {
+      .header .menu {
+        display: none;
+      }
+
+      .header .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-right: 0;
+      }
+
+      .header .logo img {
+        height: 35px;
+      }
+    }
+
+    /* İçerik Alanı */
     .content {
-      flex-grow: 1; /* İçeriğin esneyip büyümesini sağlar */
+      margin-top: 120px; /* Header'ı geçmesini sağlar */
+      margin-bottom: 120px; /* Footer'a yakınlaşmaması için */
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      flex-grow: 1;
+      padding-bottom: 100px;
       width: 100%;
-      padding-bottom: 50px; /* Footer'ın üzerine çıkmaması için padding eklenir */
     }
 
-    .balance-container {
-      background: rgba(110, 110, 110, 0.155);
-      border-radius: 40px;
-      padding: 40px;
-      box-shadow: 0 4px 6px rgba(103, 84, 84, 0.367);
-      width: calc(100% - 40px);
-      max-width: 320px;
-      text-align: center;
-      backdrop-filter: blur(40px);
-      border: none;
-      margin: 0 auto;
-      word-wrap: break-word;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .balance-container h2 {
+      color: white;
+      margin-bottom: 10px;
     }
 
+    /* Buton */
     .balance-btn {
       background-color: #d30412;
       color: white;
       font-size: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.258);
       padding: 12px 25px;
       border: none;
       border-radius: 40px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
       text-decoration: none;
       display: inline-block;
     }
 
+    .balance-container .bonus-text {
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
     .balance-btn:hover {
       background-color: #a9030b;
+      transform: translateY(-4px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
     }
 
-    /* Footer */
-    .footer {
-      background-color: white;
-      color: #333;
-      padding: 20px;
-      text-align: center;
-      width: 100%;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      z-index: 1000;
-      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .footer .payment-icons {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .footer .payment-icons img {
-      width: 30px;
-      height: 30px;
-    }
-
-    .footer-bottom {
-      font-size: 12px;
-      margin-top: 10px;
-    }
-
-    .footer-bottom a {
-      color: #d30412;
-      text-decoration: none;
-    }
-
-    .footer-bottom a:hover {
-      text-decoration: underline;
+    .balance-btn:active {
+      transform: translateY(2px);
     }
 
     /* Search Container */
@@ -151,8 +178,8 @@
       justify-content: center;
       gap: 10px;
       margin: 20px auto;
-      flex-wrap: nowrap; /* Flex wrap yerine nowrap, simgeler alt satıra düşmesin */
-      align-items: center; /* Simge ve yazıların hizalanmasını sağlarız */
+      flex-wrap: nowrap;
+      align-items: center;
     }
 
     .icons img {
@@ -203,7 +230,7 @@
       }
 
       .icons img {
-        width: 50px; /* Simge boyutunu mobilde küçültüyoruz */
+        width: 50px;
         height: 50px;
       }
 
@@ -219,8 +246,8 @@
     /* PC'de pencereyi daha geniş yapma */
     @media (min-width: 769px) {
       .balance-container {
-        width: 60%; /* Ekranda daha kısa olacak şekilde pencereyi ayarladım */
-        max-width: 900px; /* Maksimum genişlik 900px */
+        width: 60%;
+        max-width: 900px;
         padding: 40px;
       }
 
@@ -246,10 +273,49 @@
         padding: 10px 15px;
       }
     }
+
+    /* Footer */
+    .footer {
+      background-color: white;
+      color: #333;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .footer .payment-icons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .footer .payment-icons img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .footer-bottom {
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .footer-bottom a {
+      color: #d30412;
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-
   <!-- Header -->
   <div class="header">
     <div class="logo">
@@ -301,6 +367,5 @@
       <p>Bütün hüquqlar qorunur © 2024 Million.az</p>
     </div>
   </div>
-
 </body>
 </html>
