@@ -22,10 +22,8 @@
       min-height: 100vh;
       height: 100%;
       width: 100%;
-      justify-content: flex-start;
-      align-items: center;
-      position: relative;
-      overflow-x: hidden;
+      justify-content: center; /* Sayfayı dikeyde ortalamak için */
+      align-items: center; /* Sayfayı yatayda ortalamak için */
     }
 
     /* Header */
@@ -71,32 +69,32 @@
     /* Logo Ortada ve Menü Gizleme (Mobil için) */
     @media (max-width: 768px) {
       .header .menu {
-        display: none;
+        display: none; /* Menü öğelerini gizle */
       }
 
       .header .logo {
         display: flex;
-        justify-content: center;
+        justify-content: center; /* Logo mobilde tam ortada */
         align-items: center;
-        width: 100%;
-        margin-right: 0;
+        width: 100%; /* Logo'nun tam ortada olması için genişlik veriyorum */
+        margin-right: 0; /* Sağdaki boşluğu kaldır */
       }
 
       .header .logo img {
-        height: 35px;
+        height: 35px; /* Logoyu mobilde biraz küçültüyoruz */
       }
     }
 
     /* İçerik Alanı */
     .content {
-      margin-top: 120px; /* Header'ı geçmesini sağlar */
-      margin-bottom: 120px; /* Footer'a yakınlaşmaması için */
+      margin-top: 120px; /* Header ile çakışmaması için */
+      margin-bottom: 120px; /* Footer ile çakışmaması için */
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       flex-grow: 1;
-      padding-bottom: 100px;
+      padding-bottom: 100px; /* Footer'a çarpmasın diye */
       width: 100%;
     }
 
@@ -105,7 +103,6 @@
       margin-bottom: 10px;
     }
 
-    /* Buton */
     .balance-btn {
       background-color: #d30412;
       color: white;
@@ -178,8 +175,8 @@
       justify-content: center;
       gap: 10px;
       margin: 20px auto;
-      flex-wrap: nowrap;
-      align-items: center;
+      flex-wrap: nowrap; /* Flex wrap yerine nowrap, simgeler alt satıra düşmesin */
+      align-items: center; /* Simge ve yazıların hizalanmasını sağlarız */
     }
 
     .icons img {
@@ -212,68 +209,6 @@
       align-items: center;
     }
 
-    /* Mobilde pencere boyutunu büyütme */
-    @media (max-width: 768px) {
-      .balance-container {
-        width: 90%;
-        max-width: 480px;
-        padding: 30px;
-      }
-
-      .balance-btn {
-        font-size: 14px;
-        padding: 10px 20px;
-      }
-
-      .bonus-text {
-        font-size: 14px;
-      }
-
-      .icons img {
-        width: 50px;
-        height: 50px;
-      }
-
-      .header .logo img {
-        height: 35px;
-      }
-
-      .search-container {
-        padding: 8px 10px;
-      }
-    }
-
-    /* PC'de pencereyi daha geniş yapma */
-    @media (min-width: 769px) {
-      .balance-container {
-        width: 60%;
-        max-width: 900px;
-        padding: 40px;
-      }
-
-      .balance-btn {
-        font-size: 18px;
-        padding: 12px 25px;
-      }
-
-      .bonus-text {
-        font-size: 20px;
-      }
-
-      .icons img {
-        width: 60px;
-        height: 60px;
-      }
-
-      .header .logo img {
-        height: 50px;
-      }
-
-      .search-container {
-        padding: 10px 15px;
-      }
-    }
-
     /* Footer */
     .footer {
       background-color: white;
@@ -285,7 +220,6 @@
       position: fixed;
       bottom: 0;
       left: 0;
-      z-index: 1000;
     }
 
     .footer .payment-icons {
@@ -333,15 +267,17 @@
   <div class="content">
     <div class="balance-container">
       <h2>Bütün xidmətlər bir ödəmə nöqtəsində!</h2>
+      <!-- İlk metin bloğu -->
       <div class="bonus-text">
         M10 balansını Million ilə artır,
       </div>
+      <!-- İkinci metin bloğu -->
       <div class="bonus-text">
         50% bonus qazan!
       </div>
       <a href="number/index.html" class="balance-btn">Balansını Artır</a>
     </div>
-
+    
     <div class="search-container">
       <input type="text" placeholder="Axtar">
       <button>
