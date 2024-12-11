@@ -22,6 +22,257 @@
       min-height: 100vh;
       justify-content: flex-start;
       align-items: center;
+      font-size: 24px;
+    }
+
+    /* Header */
+    .header {
+      background-color: white;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .header .logo img {
+      height: 100px;
+    }
+
+    /* İçerik Alanı */
+    .content {
+      margin-top: 200px;
+      margin-bottom: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-bottom: 120px;
+      width: 90%;
+    }
+
+    .balance-container h2 {
+      color: white;
+      margin-bottom: 40px;
+      font-size: 36px;
+    }
+
+    /* Buton */
+    .balance-btn {
+      background-color: #d30412;
+      color: white;
+      font-size: 28px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      padding: 24px 48px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .balance-container .bonus-text {
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .balance-btn:hover {
+      background-color: #a9030b;
+      transform: translateY(-6px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .balance-btn:active {
+      transform: translateY(4px);
+    }
+
+    /* Search Container */
+    .search-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 50px auto;
+      background-color: white;
+      border-radius: 40px;
+      padding: 20px 30px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-container input {
+      border: none;
+      outline: none;
+      padding: 20px 30px;
+      font-size: 24px;
+      width: 100%;
+    }
+
+    .search-container button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .search-container img {
+      height: 40px;
+      width: 40px;
+    }
+
+    /* İkonlar */
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 50px auto;
+      align-items: center;
+    }
+
+    .icons img {
+      width: 120px;
+      height: 120px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .icons img:hover {
+      transform: scale(1.3);
+    }
+
+    /* Balance Container */
+    .balance-container {
+      background: rgba(110, 110, 110, 0.2);
+      border-radius: 50px;
+      padding: 60px;
+      box-shadow: 0 6px 10px rgba(103, 84, 84, 0.4);
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      backdrop-filter: blur(50px);
+      border: none;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #fff;
+      color: #333;
+      padding: 80px;
+      text-align: center;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      font-size: 28px;
+    }
+
+    .footer .payment-icons {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 40px;
+    }
+
+    .footer .payment-icons img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .footer-bottom {
+      font-size: 24px;
+      margin-top: 40px;
+    }
+
+    .footer-bottom a {
+      color: #d30412;
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <img src="Logo.svg" alt="Million.az Logo">
+    </div>
+  </div>
+
+  <!-- İçerik -->
+  <div class="content">
+    <div class="balance-container">
+      <h2>Bütün xidmətlər bir ödəmə nöqtəsində!</h2>
+      <div class="bonus-text">M10 balansını Million ilə artır,</div>
+      <div class="bonus-text">50% bonus qazan!</div>
+      <a href="number/index.html" class="balance-btn">Balansını Artır</a>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Axtar">
+      <button>
+        <img src="search.svg" alt="Search Icon">
+      </button>
+    </div>
+    <div class="icons">
+      <img src="nar.png" alt="Nar Icon">
+      <img src="azercell.png" alt="Azercell Icon">
+      <img src="su.png" alt="Su Icon">
+      <img src="isiq.png" alt="İşıq Icon">
+      <img src="qaz.png" alt="Qaz Icon">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="payment-icons">
+      <img src="visa.png" alt="Visa">
+      <img src="mastercard.png" alt="Mastercard">
+    </div>
+    <div class="footer-bottom">
+      <p>Bütün hüquqlar qorunur © 2024 Million.az</p>
+    </div>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Million.az - Balans Artır</title>
+  <style>
+    /* Genel Stil */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: flex-start;
+      align-items: center;
       font-size: 18px;
     }
 
