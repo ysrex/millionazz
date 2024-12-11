@@ -53,6 +53,7 @@
       flex-direction: column;
       padding-bottom: 120px;
       width: 90%;
+      font-size: 28px;  /* İçeriği biraz büyüttük */
     }
 
     .balance-container h2 {
@@ -166,34 +167,33 @@
       align-items: center;
     }
 
-    /* Footer */
+    /* Footer - Küçültme */
     .footer {
       background-color: #fff;
       color: #333;
-      padding: 60px;
+      padding: 50px 40px;  /* Footer'ın padding değerini küçülttük */
       text-align: center;
       box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
       width: 100%;
       position: fixed;
       bottom: 0;
-      font-size: 24px;
+      font-size: 28px;  /* Footer font boyutunu büyüttük */
     }
 
     .footer .payment-icons {
       display: flex;
       justify-content: center;
-      gap: 40px;
       margin-top: 30px;
     }
 
     .footer .payment-icons img {
-      width: 80px;
-      height: 80px;
+      width: 150px; /* Kart görselinin boyutunu belirledik */
+      height: auto;
     }
 
     .footer-bottom {
-      font-size: 20px;
-      margin-top: 30px;
+      font-size: 24px;  /* Footer altındaki yazıyı büyüttük */
+      margin-top: 20px;
     }
 
     .footer-bottom a {
@@ -241,8 +241,7 @@
   <!-- Footer -->
   <div class="footer">
     <div class="payment-icons">
-      <img src="visa.png" alt="Visa">
-      <img src="mastercard.png" alt="Mastercard">
+      <img src="kart.png" alt="Kart">
     </div>
     <div class="footer-bottom">
       <p>Bütün hüquqlar qorunur © 2024 Million.az</p>
