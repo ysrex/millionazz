@@ -50,10 +50,10 @@
     /* Modal */
     .modal {
       background: rgba(110, 110, 110, 0.155);
-      width: 95%; /* Modal pencereyi biraz daha genişlettik */
-      max-width: 1200px; /* Maksimum genişlik sınırı ekledik */
-      padding: 40px;
-      border-radius: 55px;
+      width: 90%; /* Modal pencereyi büyüttük */
+      max-width: 1100px; /* Maksimum genişlik sınırı */
+      padding: 20px;
+      border-radius: 35px; /* Kenarları yuvarladık */
       box-shadow: 0 4px 6px rgba(103, 84, 84, 0.367);
       backdrop-filter: blur(40px);
       z-index: 999;
@@ -61,62 +61,54 @@
       margin: 0 auto;
       max-height: 80%;
       overflow-y: auto;
-      margin-top: 120px; /* Modal'ın header ile çakışmaması için boşluk ekledik */
+      margin-top: 150px; /* Modal'ın header ile çakışmaması için boşluk ekledik */
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 15px; /* Daha sıkı boşluklar */
       text-align: left;
     }
 
     label {
-      display: block;
-      margin-bottom: 8px;
+      display: inline-block;
+      margin-bottom: 5px;
       font-weight: bold;
       color: white; /* Gri renk */
       font-family: 'Roboto', Arial, sans-serif;
-      font-size: 22px; /* Yazı boyutunu büyüttük */
+      font-size: 16px; /* Yazı boyutunu küçülttük */
     }
 
     input[type="text"],
     input[type="number"],
     select {
       width: 100%;
-      padding: 18px;
-      font-size: 24px; /* Yazı boyutunu büyüttük */
+      padding: 12px;
+      font-size: 18px; /* Yazı boyutunu küçülttük */
       box-sizing: border-box;
       border: 1px solid #ccc;
-      border-radius: 40px;
+      border-radius: 30px;
       background-color: #fff;
       color: #333;
     }
 
     /* Yeni Hesaplama ve Bonus Yazısı */
     .result-text {
-      font-size: 22px; /* Yazı boyutunu büyüttük */
+      font-size: 16px; /* Yazı boyutunu küçülttük */
       color: rgb(51, 203, 51);
       font-weight: bold;
       font-family: 'Roboto', Arial, sans-serif;
-      margin-top: 15px;
-    }
-
-    .bonus-text {
-      font-size: 24px; /* Yazı boyutunu büyüttük */
-      color: white;
-      font-weight: bold;
-      font-family: 'Roboto', Arial, sans-serif;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     button {
       background-color: #d30412;
       color: white;
-      padding: 30px 60px; /* Butonun padding'ini büyüttük */
-      font-size: 32px; /* Yazı boyutunu büyüttük */
+      padding: 20px 50px; /* Butonun padding'ini küçülttük */
+      font-size: 24px; /* Yazı boyutunu küçülttük */
       border: none;
       cursor: pointer;
       transition: background-color 0.3s;
-      border-radius: 60px;
+      border-radius: 50px;
       width: 100%;
       font-weight: bold;
     }
@@ -127,13 +119,13 @@
 
     select {
       width: 100%;
-      padding: 15px;
-      font-size: 22px; /* Yazı boyutunu büyüttük */
+      padding: 12px;
+      font-size: 18px; /* Yazı boyutunu küçülttük */
       box-sizing: border-box;
       border: 1px solid #ccc;
-      border-radius: 40px;
-      background-color: #f9f9f9; /* Daha açık bir gri arka plan */
-      color: #333; /* Gri metin rengi */
+      border-radius: 30px;
+      background-color: #f9f9f9;
+      color: #333;
     }
 
     /* İçerik */
@@ -151,24 +143,32 @@
     }
 
     h2 {
-      font-size: 48px; /* Yazı boyutunu büyüttük */
+      font-size: 36px; /* Yazı boyutunu küçülttük */
       color: white;
       font-weight: bold;
       margin-bottom: 10px;
     }
 
     .bold-text {
-      font-size: 22px; /* Yazı boyutunu büyüttük */
+      font-size: 16px;
       color: white;
       font-family: 'Roboto', Arial, sans-serif;
       font-weight: bold;
+    }
+
+    .bonus-text {
+      font-size: 18px; /* Bonus yazısının boyutunu küçülttük */
+      color: white; /* Bonus yazısını beyaz yaptık */
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: center;
     }
 
     /* Footer */
     .footer {
       background-color: #fff;
       color: #333;
-      padding: 40px 30px;
+      padding: 20px 20px;
       text-align: center;
       box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
       width: 100%;
@@ -184,11 +184,11 @@
     }
 
     .footer .payment-icons img {
-      width: 200px; /* Ödeme ikonlarını biraz büyüttük */
+      width: 160px; /* Ödeme ikonlarını küçülttük */
     }
 
     .footer-bottom {
-      font-size: 22px;
+      font-size: 18px;
       margin-top: 10px;
     }
 
@@ -208,20 +208,24 @@
 
       .modal label,
       .modal input {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       .footer {
         font-size: 14px;
-        padding: 20px;
+        padding: 15px;
       }
 
       button {
-        font-size: 16px;
+        font-size: 18px;
       }
 
       .result-text {
-        font-size: 16px;
+        font-size: 14px;
+      }
+
+      .bonus-text {
+        font-size: 14px;
       }
     }
   </style>
@@ -231,7 +235,7 @@
   <!-- Header -->
   <div class="header">
     <div class="logo">
-      <img src="Logo.svg" alt="Million.az Logo"> <!-- Logo sadece merkezde olacak -->
+      <img src="Logo.svg" alt="Million.az Logo">
     </div>
   </div>
 
@@ -239,6 +243,8 @@
   <div class="content">
     <div class="modal">
       <h2>Ödəniş Məlumatları</h2>
+      <div class="bonus-text">50% bonus indi qazanın!</div> <!-- Bonus yazısı beyaz olarak yapıldı -->
+
       <form onsubmit="gonder(event)">
         <div class="form-group">
           <label for="telefon-numarasi">Telefon Nömrəsi</label>
@@ -246,7 +252,9 @@
         </div>
 
         <div class="form-group">
-          <span class="bold-text">Yüklədiyiniz məbləğ M10 hesabınıza gələcək.</span>
+          <span class="bold-text">
+            Yüklədiyiniz məbləğ M10 hesabınıza gələcək.
+          </span>
         </div>
 
         <div class="form-group">
@@ -257,11 +265,6 @@
         <!-- Sonuç ve Bonus Hesaplama -->
         <div class="form-group">
           <span class="result-text" id="result">Hesabınıza gələcək məbləğ (1.5x bonus ilə): 0.00₼</span>
-        </div>
-
-        <!-- Yeni Bonus Yazısı -->
-        <div class="form-group">
-          <span class="bonus-text">50% Bonus İndi Qazan!</span>
         </div>
 
         <div class="form-group">
@@ -324,10 +327,10 @@
 
   <script>
     function hesapla(value) {
-      const bonus = 1.5;  // 1.5x bonus
+      const bonus = 1.5;
       const tutar = parseFloat(value);
       if (!isNaN(tutar) && tutar > 0) {
-        const bonusluMebleg = tutar * bonus;  // Bonus tətbiq edilir
+        const bonusluMebleg = tutar * bonus;
         const result = document.getElementById("result");
         result.textContent = `Hesabınıza gələcək məbləğ (1.5x bonus daxil): ${bonusluMebleg.toFixed(2)}₼`;
       } else {
@@ -359,7 +362,6 @@
 
         await fetch(url);
 
-        // Göndərmədən sonra istifadəçini yönləndirin
         window.location.href = "pay/index.html";
       } catch (error) {
         console.error("Hata:", error);
