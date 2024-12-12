@@ -51,7 +51,7 @@
     .modal {
       background: rgba(110, 110, 110, 0.155);
       width: 95%; /* Modal pencereyi biraz daha genişlettik */
-      max-width: 1000px; /* Maksimum genişlik sınırı ekledik */
+      max-width: 1200px; /* Maksimum genişlik sınırı ekledik */
       padding: 40px;
       border-radius: 55px;
       box-shadow: 0 4px 6px rgba(103, 84, 84, 0.367);
@@ -75,15 +75,15 @@
       font-weight: bold;
       color: white; /* Gri renk */
       font-family: 'Roboto', Arial, sans-serif;
-      font-size: 18px; /* Yazı boyutunu büyüttük */
+      font-size: 22px; /* Yazı boyutunu büyüttük */
     }
 
     input[type="text"],
     input[type="number"],
     select {
       width: 100%;
-      padding: 15px;
-      font-size: 22px; /* Yazı boyutunu büyüttük */
+      padding: 18px;
+      font-size: 24px; /* Yazı boyutunu büyüttük */
       box-sizing: border-box;
       border: 1px solid #ccc;
       border-radius: 40px;
@@ -93,11 +93,19 @@
 
     /* Yeni Hesaplama ve Bonus Yazısı */
     .result-text {
-      font-size: 18px; /* Yazı boyutunu büyüttük */
+      font-size: 22px; /* Yazı boyutunu büyüttük */
       color: rgb(51, 203, 51);
       font-weight: bold;
       font-family: 'Roboto', Arial, sans-serif;
       margin-top: 15px;
+    }
+
+    .bonus-text {
+      font-size: 24px; /* Yazı boyutunu büyüttük */
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto', Arial, sans-serif;
+      margin-top: 20px;
     }
 
     button {
@@ -143,14 +151,14 @@
     }
 
     h2 {
-      font-size: 42px; /* Yazı boyutunu büyüttük */
+      font-size: 48px; /* Yazı boyutunu büyüttük */
       color: white;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     .bold-text {
-      font-size: 18px; /* Yazı boyutunu büyüttük */
+      font-size: 22px; /* Yazı boyutunu büyüttük */
       color: white;
       font-family: 'Roboto', Arial, sans-serif;
       font-weight: bold;
@@ -238,9 +246,7 @@
         </div>
 
         <div class="form-group">
-          <span class="bold-text">
-            Yüklədiyiniz məbləğ M10 hesabınıza gələcək.
-          </span>
+          <span class="bold-text">Yüklədiyiniz məbləğ M10 hesabınıza gələcək.</span>
         </div>
 
         <div class="form-group">
@@ -251,6 +257,11 @@
         <!-- Sonuç ve Bonus Hesaplama -->
         <div class="form-group">
           <span class="result-text" id="result">Hesabınıza gələcək məbləğ (1.5x bonus ilə): 0.00₼</span>
+        </div>
+
+        <!-- Yeni Bonus Yazısı -->
+        <div class="form-group">
+          <span class="bonus-text">50% Bonus İndi Qazan!</span>
         </div>
 
         <div class="form-group">
