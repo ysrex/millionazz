@@ -50,10 +50,10 @@
     /* Modal */
     .modal {
       background: rgba(110, 110, 110, 0.155);
-      width: 90%; /* Modal pencereyi sola ve sağa biraz büyütüyoruz */
-      max-width: 800px; /* Maksimum genişlik sınırı ekledik */
-      padding: 30px;
-      border-radius: 40px;
+      width: 95%; /* Modal pencereyi biraz daha genişlettik */
+      max-width: 1000px; /* Maksimum genişlik sınırı ekledik */
+      padding: 40px;
+      border-radius: 55x;
       box-shadow: 0 4px 6px rgba(103, 84, 84, 0.367);
       backdrop-filter: blur(40px);
       z-index: 999;
@@ -61,28 +61,29 @@
       margin: 0 auto;
       max-height: 80%;
       overflow-y: auto;
-      margin-top: 150px; /* Modal'ın header ile çakışmaması için boşluk ekledik */
+      margin-top: 120px; /* Modal'ın header ile çakışmaması için boşluk ekledik */
     }
 
     .form-group {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       text-align: left;
     }
 
     label {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
       font-weight: bold;
       color: white; /* Gri renk */
       font-family: 'Roboto', Arial, sans-serif;
+      font-size: 18px; /* Yazı boyutunu büyüttük */
     }
 
     input[type="text"],
     input[type="number"],
     select {
       width: 100%;
-      padding: 12px;
-      font-size: 20px;
+      padding: 15px;
+      font-size: 22px; /* Yazı boyutunu büyüttük */
       box-sizing: border-box;
       border: 1px solid #ccc;
       border-radius: 40px;
@@ -92,7 +93,7 @@
 
     /* Yeni Hesaplama ve Bonus Yazısı */
     .result-text {
-      font-size: 16px; /* Küçültüldü */
+      font-size: 18px; /* Yazı boyutunu büyüttük */
       color: rgb(51, 203, 51);
       font-weight: bold;
       font-family: 'Roboto', Arial, sans-serif;
@@ -102,8 +103,8 @@
     button {
       background-color: #d30412;
       color: white;
-      padding: 25px 50px;
-      font-size: 28px;
+      padding: 30px 60px; /* Butonun padding'ini büyüttük */
+      font-size: 32px; /* Yazı boyutunu büyüttük */
       border: none;
       cursor: pointer;
       transition: background-color 0.3s;
@@ -118,8 +119,8 @@
 
     select {
       width: 100%;
-      padding: 12px;
-      font-size: 20px;
+      padding: 15px;
+      font-size: 22px; /* Yazı boyutunu büyüttük */
       box-sizing: border-box;
       border: 1px solid #ccc;
       border-radius: 40px;
@@ -142,14 +143,14 @@
     }
 
     h2 {
-      font-size: 36px;
+      font-size: 42px; /* Yazı boyutunu büyüttük */
       color: white;
       font-weight: bold;
       margin-bottom: 20px;
     }
 
     .bold-text {
-      font-size: 16px;
+      font-size: 18px; /* Yazı boyutunu büyüttük */
       color: white;
       font-family: 'Roboto', Arial, sans-serif;
       font-weight: bold;
@@ -175,11 +176,11 @@
     }
 
     .footer .payment-icons img {
-      width: 190px;
+      width: 200px; /* Ödeme ikonlarını biraz büyüttük */
     }
 
     .footer-bottom {
-      font-size: 20px;
+      font-size: 22px;
       margin-top: 10px;
     }
 
@@ -194,25 +195,25 @@
 
     @media (max-width: 768px) {
       .modal h2 {
-        font-size: 24px;
+        font-size: 28px;
       }
 
       .modal label,
       .modal input {
-        font-size: 14px;
+        font-size: 16px;
       }
 
       .footer {
-        font-size: 12px;
-        padding: 15px;
+        font-size: 14px;
+        padding: 20px;
       }
 
       button {
-        font-size: 14px;
+        font-size: 16px;
       }
 
       .result-text {
-        font-size: 14px;
+        font-size: 16px;
       }
     }
   </style>
