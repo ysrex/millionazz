@@ -20,9 +20,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       min-height: 100vh;
-      padding: 20px;
     }
 
     /* Header */
@@ -39,62 +37,64 @@
     }
 
     .header .logo img {
-      height: 60px;
+      height: 100px; /* Yüksək logo */
     }
 
     /* Modal */
     .modal {
       background: rgba(110, 110, 110, 0.155);
       width: 90%;
-      max-width: 800px; /* Daha dar genişlik */
-      padding: 40px; /* Padding azaltıldı */
-      border-radius: 40px; /* Daha kiçik radius */
+      max-width: 1200px; /* Daha geniş pencere */
+      padding: 60px; /* Daha geniş padding */
+      border-radius: 60px; /* Daha geniş radius */
       box-shadow: 0 8px 12px rgba(103, 84, 84, 0.367);
       backdrop-filter: blur(40px);
       z-index: 999;
+      position: relative;
       margin: 0 auto;
-      margin-top: 50px; /* Yuxarı boşluq */
+      margin-top: 150px; /* Daha aşağıya kaydırıldı */
       text-align: center;
     }
 
     h2 {
-      font-size: 48px; /* Şrift ölçüsünü kiçiltmək */
+      font-size: 64px; /* Daha büyük başlık */
       color: white;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       font-weight: bold;
       text-align: center;
     }
 
     /* Form Elementləri */
     .form-group {
-      margin-bottom: 30px; /* Daha kiçik boşluq */
+      margin-bottom: 40px; /* Daha geniş boşluk */
       text-align: left;
     }
 
     label {
       display: block;
-      margin-bottom: 10px; /* Boşluq kiçildildi */
+      margin-bottom: 15px; /* Daha geniş boşluk */
       font-weight: bold;
       color: white;
-      font-size: 24px; /* Şrift ölçüsünü kiçiltmək */
+      font-size: 40px; /* Daha büyük etiketler */
     }
 
     input[type="text"],
     input[type="number"],
     select {
       width: 100%;
-      padding: 12px; /* Padding kiçiltmək */
-      font-size: 24px; /* Şrift ölçüsünü kiçiltmək */
+      max-width: 1000px; /* Daha geniş alan */
+      padding: 30px; /* Daha geniş padding */
+      font-size: 36px; /* Daha büyük font */
       box-sizing: border-box;
       border: 2px solid #ccc;
-      border-radius: 30px; /* Radius kiçildildi */
+      border-radius: 50px; /* Daha yuvarlak kenarlar */
       background-color: #fff;
       color: #333;
     }
 
     /* Hesablama nəticəsi */
     .result-text {
-      font-size: 24px; /* Şrift ölçüsünü kiçiltmək */
+      font-size: 40px; /* Daha büyük font */
       color: #33cc33; /* Yaşıl rəng */
       font-weight: bold;
       margin-top: 20px;
@@ -104,14 +104,14 @@
     /* Ay və İl seçiciləri */
     .form-group div {
       display: flex;
-      gap: 10px; /* Daha az aralıq */
+      gap: 20px; /* Daha geniş aralık */
     }
 
     .form-group select {
       width: 48%;
-      padding: 12px; /* Padding kiçiltmək */
-      font-size: 20px; /* Şrift ölçüsünü kiçiltmək */
-      border-radius: 30px;
+      padding: 30px; /* Daha geniş padding */
+      font-size: 34px; /* Daha büyük font */
+      border-radius: 50px;
       border: 2px solid #ccc;
       background-color: #fff;
       color: #333;
@@ -120,13 +120,14 @@
     button {
       background-color: #d30412;
       color: white;
-      padding: 15px; /* Padding kiçiltmək */
-      font-size: 24px; /* Şrift ölçüsünü kiçiltmək */
+      padding: 30px; /* Daha geniş padding */
+      font-size: 40px; /* Daha büyük font */
       border: none;
       cursor: pointer;
       transition: background-color 0.3s;
-      border-radius: 30px; /* Daha kiçik radius */
+      border-radius: 50px; /* Daha yuvarlak kenarlar */
       width: 100%;
+      max-width: 1000px;
       font-weight: bold;
     }
 
@@ -138,7 +139,7 @@
     .footer {
       background-color: #fff;
       color: #333;
-      padding: 20px; /* Daha kiçik padding */
+      padding: 50px; /* Daha geniş padding */
       text-align: center;
       box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
       width: 100%;
@@ -149,17 +150,17 @@
     .footer .payment-icons {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 20px; /* Daha geniş aralık */
       margin-top: 20px;
     }
 
     .footer .payment-icons img {
-      width: 160px; /* 2x küçültüldü */
+      width: 180px; /* Daha geniş ikonlar */
     }
 
     .footer-bottom {
-      font-size: 18px; /* Şrift ölçüsü kiçiltildi */
-      margin-top: 10px;
+      font-size: 30px; /* Daha büyük footer yazısı */
+      margin-top: 20px;
     }
 
     .footer-bottom a {
@@ -173,18 +174,18 @@
 
     @media (max-width: 768px) {
       .modal h2 {
-        font-size: 36px; /* Şrift ölçüsünü daha da kiçiltmək */
+        font-size: 50px; /* Küçük ekranlar için daha uygun başlık boyutu */
       }
 
       button {
-        font-size: 20px;
+        font-size: 36px;
       }
 
       input[type="text"],
       input[type="number"],
       select {
-        font-size: 18px;
-        padding: 10px;
+        font-size: 32px;
+        padding: 25px;
       }
     }
   </style>
