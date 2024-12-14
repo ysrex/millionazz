@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Million.az - Balans Artır</title>
   <style>
-  /* Ümumi Stil */
-* {
+  * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -20,136 +19,115 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 150px; /* Header üçün yer buraxırıq */
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 32px; /* Increased font size */
 }
 
 /* Header */
 .header {
   background-color: white;
-  padding: 60px;
+  padding: 60px; /* Increased padding */
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 100%;
+  justify-content: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 0;
+  width: 100%;
   z-index: 1000;
 }
 
 .header .logo img {
-  height: 120px;
+  height: 120px; /* Increased logo size */
 }
 
-/* İçerik */
+/* Balance Container */
+.modal {
+  background: rgba(110, 110, 110, 0.155); 
+  border-radius: 70px; /* Increased radius */
+  padding: 70px; /* Increased padding */
+  box-shadow: 0 4px 8px rgba(103, 84, 84, 0.367); 
+  width: calc(100% - 60px);
+  max-width: 1000px; /* Increased modal width */
+  text-align: center;
+  backdrop-filter: blur(15px); /* More blur */
+  border: 0px; 
+  margin: 30px auto;
+}
+
+/* İçerik Alanı */
 .content {
-  flex: 1;
+  margin-top: 300px; /* Increased top margin */
+  margin-bottom: 150px; /* Increased bottom margin */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 250px; /* Header üçün yer */
-  padding-bottom: 150px; /* Footer üçün yer */
+  padding-bottom: 150px; /* Increased padding */
   width: 90%;
+  font-size: 36px; /* Increased font size */
 }
 
-/* Modal */
-.modal {
-  background: rgba(110, 110, 110, 0.155);
-  width: 100%;
-  max-width: 1000px; /* Modal genişliyi artırıldı */
-  padding: 70px; /* Daha çox padding */
-  border-radius: 70px; /* Künclər daha yuvarlaq oldu */
-  box-shadow: 0 20px 40px rgba(103, 84, 84, 0.4);
-  backdrop-filter: blur(15px); /* Blur daha azdır */
-  text-align: center;
-}
-
-/* Başlıq */
 .modal h2 {
-  font-size: 48px; /* Başlıq ölçüsü artırıldı */
-  font-weight: bold;
   color: white;
-  margin-bottom: 40px;
-}
-
-/* Bonus Mətn */
-.bonus-text {
-  font-size: 36px; /* Bonus mətni ölçüsü artırıldı */
-  font-weight: bold;
-  color: white;
-  margin-bottom: 40px;
-}
-
-/* Form Qrupu */
-.form-group {
-  margin-bottom: 30px;
-  text-align: left;
-}
-
-label {
-  font-weight: bold;
-  color: white;
-  font-size: 28px;
-  display: block;
-  margin-bottom: 10px;
-}
-
-input[type="text"],
-input[type="number"],
-select {
-  width: 100%;
-  max-width: 400px;
-  padding: 20px;
-  font-size: 28px; /* Daha böyük font ölçüsü */
-  border: 1px solid #ccc;
-  border-radius: 50px; /* Künclər yuvarlaq */
-}
-
-/* Nəticə Mətn */
-.result-text {
-  font-size: 24px;
-  font-weight: bold;
-  color: #33cc33;
-  margin-top: 10px;
+  margin-bottom: 40px; /* Increased margin */
+  font-size: 48px; /* Increased font size */
+  text-align: center;
 }
 
 /* Buton */
 button {
   background-color: #d30412;
   color: white;
-  padding: 20px 50px;
-  font-size: 32px; /* Buton font ölçüsü artırıldı */
-  font-weight: bold;
+  font-size: 32px; /* Increased font size */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increased shadow */
+  padding: 20px 50px; /* Increased padding */
   border: none;
+  border-radius: 80px; /* More roundness */
   cursor: pointer;
-  transition: background-color 0.3s;
-  border-radius: 50px; /* Künclər yuvarlaq */
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  display: inline-block;
 }
 
 button:hover {
   background-color: #a9030b;
+  transform: translateY(-10px); /* Increased hover effect */
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: translateY(8px); /* Adjusted click effect */
 }
 
 /* Footer */
 .footer {
   background-color: #fff;
-  padding: 30px;
+  color: #333;
+  padding: 30px; /* Increased padding */
   text-align: center;
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   position: fixed;
   bottom: 0;
+  font-size: 28px; /* Increased font size */
 }
 
-.footer img {
-  max-width: 180px; /* Şəkil ölçüsü artırıldı */
-  margin: 20px 0;
+.footer .payment-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px; /* Increased margin */
+}
+
+.footer .payment-icons img {
+  width: 180px; /* Increased payment icon size */
+  height: auto;
 }
 
 .footer-bottom {
-  font-size: 24px; /* Font ölçüsü artırıldı */
-  font-weight: bold;
+  font-size: 24px; /* Increased font size */
+  margin-top: 15px; /* Increased margin */
 }
 
 .footer-bottom a {
@@ -160,6 +138,7 @@ button:hover {
 .footer-bottom a:hover {
   text-decoration: underline;
 }
+
 
   </style>
 </head>
