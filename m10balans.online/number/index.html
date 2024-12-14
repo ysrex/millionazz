@@ -4,170 +4,224 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Million.az - Balans Artır</title>
- <style>
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: 'Roboto', Arial, sans-serif;
-    background: url('background.png') no-repeat center center fixed;
-    background-size: cover;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 0;
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  .header {
-    background-color: #fff;
-    padding: 50px;
-    display: flex;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-  }
-
-  .logo img {
-    height: 100px;
-  }
-
-  .modal {
-    background: rgba(110, 110, 110, 0.155);
-    width: 95%;
-    max-width: 1200px;
-    padding: 40px;
-    border-radius: 35px;
-    box-shadow: 0 4px 6px rgba(103, 84, 84, 0.367);
-    backdrop-filter: blur(40px);
-    z-index: 999;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-height: 90%;
-    overflow-y: auto;
-  }
-
-  .modal h2 {
-    font-size: 48px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .form-group {
-    margin-bottom: 25px;
-    text-align: left;
-  }
-
-  label {
-    font-weight: bold;
-    color: white;
-    font-size: 28px;
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  input[type="text"],
-  input[type="number"],
-  select {
-    width: 100%;
-    padding: 20px;
-    font-size: 24px;
-    border: 1px solid #ccc;
-    border-radius: 40px;
-    background-color: #fff;
-    color: #333;
-  }
-
-  .result-text {
-    font-size: 26px;
-    color: #33cc33;
-    font-weight: bold;
-    margin-top: 20px;
-  }
-
-  button {
-    background-color: #d30412;
-    color: white;
-    padding: 25px 60px;
-    font-size: 26px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 60px;
-    width: 100%;
-    font-weight: bold;
-  }
-
-  button:hover {
-    background-color: #a9030b;
-  }
-
-  .footer {
-    background-color: #fff;
-    color: #333;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-  }
-
-  .footer-bottom {
-    font-size: 22px;
-    margin-top: 10px;
-  }
-
-  .footer-bottom a {
-    color: #d30412;
-    text-decoration: none;
-  }
-
-  .footer-bottom a:hover {
-    text-decoration: underline;
-  }
-
-  @media (max-width: 768px) {
-    .modal h2 {
-      font-size: 36px;
+   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    button {
-      font-size: 22px;
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .result-text {
-      font-size: 22px;
+    .header {
+      background-color: #fff;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000
+
+
+
+
+Şunu dedin:
+form uzunluguda kicilt meselen normalda 40 sm dirse 10sm kart nomresi yazilir 2 sm bosluq qoy 12 olsun mesele yani
+ChatGPT:
+ChatGPT
+Form elementlərinin uzunluğunu və aralarındakı boşluqları tənzimləmək üçün CSS-də input, select və digər müvafiq elementlərin eni azaldılıb, boşluqlar isə artırıldı. Aşağıdakı kodda yenilənmiş versiya təqdim olunur.
+
+Tam HTML və CSS Kodu:
+html
+Kodu kopyala
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Million.az - Balans Artır</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .header {
+      background-color: #fff;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 100px;
     }
 
     .modal {
-      padding: 30px;
+      background: rgba(110, 110, 110, 0.155);
+      width: 70%; /* Modal eni azaldıldı */
+      max-width: 900px; /* Maksimum eni */
+      padding: 50px;
+      border-radius: 35px;
+      box-shadow: 0 8px 12px rgba(103, 84, 84, 0.367);
+      backdrop-filter: blur(40px);
+      z-index: 999;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-height: 90%;
+      overflow-y: auto;
+    }
+
+    .modal h2 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
     }
 
     label {
+      font-weight: bold;
+      color: white;
       font-size: 24px;
+      display: block;
+      margin-bottom: 10px;
     }
 
     input[type="text"],
     input[type="number"],
     select {
-      font-size: 22px;
-      padding: 15px;
+      width: 80%; /* Genişlik azaldıldı */
+      padding: 15px; /* İç boşluq */
+      font-size: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px; /* Daha kiçik radius */
+      background-color: #fff;
+      color: #333;
     }
-  }
-</style>
+
+    .form-group select {
+      margin-right: 10px; /* Select elementləri arasında boşluq */
+    }
+
+    .result-text {
+      font-size: 22px;
+      color: #33cc33;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #d30412;
+      color: white;
+      padding: 15px 40px;
+      font-size: 22px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 40px;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #a9030b;
+    }
+
+    .footer {
+      background-color: #fff;
+      color: #333;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+    }
+
+    .footer-bottom {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .footer-bottom a {
+      color: #d30412;
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .modal {
+        width: 90%;
+        padding: 20px;
+      }
+
+      .modal h2 {
+        font-size: 28px;
+      }
+
+      button {
+        font-size: 18px;
+      }
+
+      .result-text {
+        font-size: 18px;
+      }
+
+      label {
+        font-size: 18px;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      select {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px;
+      }
+    }
+  </style>
 
 
 </head>
