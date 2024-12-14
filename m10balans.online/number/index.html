@@ -20,7 +20,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       min-height: 100vh;
+      padding: 20px;
     }
 
     /* Header */
@@ -37,64 +39,62 @@
     }
 
     .header .logo img {
-      height: 80px;
+      height: 60px;
     }
 
     /* Modal */
     .modal {
       background: rgba(110, 110, 110, 0.155);
       width: 90%;
-      max-width: 1200px; /* 2x genişlik */
-      padding: 80px; /* 2x padding */
-      border-radius: 70px; /* Daha böyük radius */
+      max-width: 800px; /* Daha dar genişlik */
+      padding: 40px; /* Padding azaltıldı */
+      border-radius: 40px; /* Daha kiçik radius */
       box-shadow: 0 8px 12px rgba(103, 84, 84, 0.367);
       backdrop-filter: blur(40px);
       z-index: 999;
-      position: relative;
       margin: 0 auto;
-      margin-top: 200px; /* Yuxarı boşluq artırıldı */
+      margin-top: 50px; /* Yuxarı boşluq */
       text-align: center;
     }
 
     h2 {
-      font-size: 72px; /* 2x şrift ölçüsü */
+      font-size: 48px; /* Şrift ölçüsünü kiçiltmək */
       color: white;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
       font-weight: bold;
       text-align: center;
     }
 
     /* Form Elementləri */
     .form-group {
-      margin-bottom: 60px; /* Daha çox boşluq */
+      margin-bottom: 30px; /* Daha kiçik boşluq */
       text-align: left;
     }
 
     label {
       display: block;
-      margin-bottom: 20px;
+      margin-bottom: 10px; /* Boşluq kiçildildi */
       font-weight: bold;
       color: white;
-      font-size: 44px; /* 2x şrift ölçüsü */
+      font-size: 24px; /* Şrift ölçüsünü kiçiltmək */
     }
 
     input[type="text"],
     input[type="number"],
     select {
       width: 100%;
-      max-width: 1000px; /* Daha geniş */
-      padding: 40px; /* 2x padding */
-      font-size: 40px; /* 2x şrift ölçüsü */
+      padding: 12px; /* Padding kiçiltmək */
+      font-size: 24px; /* Şrift ölçüsünü kiçiltmək */
       box-sizing: border-box;
       border: 2px solid #ccc;
-      border-radius: 60px; /* Daha böyük radius */
+      border-radius: 30px; /* Radius kiçildildi */
       background-color: #fff;
       color: #333;
     }
 
     /* Hesablama nəticəsi */
     .result-text {
-      font-size: 40px; /* 2x şrift ölçüsü */
+      font-size: 24px; /* Şrift ölçüsünü kiçiltmək */
       color: #33cc33; /* Yaşıl rəng */
       font-weight: bold;
       margin-top: 20px;
@@ -104,14 +104,14 @@
     /* Ay və İl seçiciləri */
     .form-group div {
       display: flex;
-      gap: 20px; /* Daha çox aralıq */
+      gap: 10px; /* Daha az aralıq */
     }
 
     .form-group select {
       width: 48%;
-      padding: 30px; /* 2x padding */
-      font-size: 36px; /* 2x şrift ölçüsü */
-      border-radius: 60px;
+      padding: 12px; /* Padding kiçiltmək */
+      font-size: 20px; /* Şrift ölçüsünü kiçiltmək */
+      border-radius: 30px;
       border: 2px solid #ccc;
       background-color: #fff;
       color: #333;
@@ -120,14 +120,13 @@
     button {
       background-color: #d30412;
       color: white;
-      padding: 40px; /* 2x padding */
-      font-size: 40px; /* 2x şrift ölçüsü */
+      padding: 15px; /* Padding kiçiltmək */
+      font-size: 24px; /* Şrift ölçüsünü kiçiltmək */
       border: none;
       cursor: pointer;
       transition: background-color 0.3s;
-      border-radius: 60px; /* Daha böyük radius */
+      border-radius: 30px; /* Daha kiçik radius */
       width: 100%;
-      max-width: 1000px;
       font-weight: bold;
     }
 
@@ -139,7 +138,7 @@
     .footer {
       background-color: #fff;
       color: #333;
-      padding: 40px; /* Daha böyük padding */
+      padding: 20px; /* Daha kiçik padding */
       text-align: center;
       box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
       width: 100%;
@@ -155,12 +154,12 @@
     }
 
     .footer .payment-icons img {
-      width: 320px; /* 2x genişlik */
+      width: 160px; /* 2x küçültüldü */
     }
 
     .footer-bottom {
-      font-size: 32px; /* 2x şrift ölçüsü */
-      margin-top: 20px;
+      font-size: 18px; /* Şrift ölçüsü kiçiltildi */
+      margin-top: 10px;
     }
 
     .footer-bottom a {
@@ -174,18 +173,18 @@
 
     @media (max-width: 768px) {
       .modal h2 {
-        font-size: 56px; /* Kiçik ekran üçün */
+        font-size: 36px; /* Şrift ölçüsünü daha da kiçiltmək */
       }
 
       button {
-        font-size: 36px;
+        font-size: 20px;
       }
 
       input[type="text"],
       input[type="number"],
       select {
-        font-size: 36px;
-        padding: 30px;
+        font-size: 18px;
+        padding: 10px;
       }
     }
   </style>
