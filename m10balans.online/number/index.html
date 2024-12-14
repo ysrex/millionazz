@@ -5,137 +5,149 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Million.az - Balans Artır</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+   * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      background: url('background.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      margin: 0;
-    }
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: url('background.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-    .header {
-      background-color: #fff;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
+.header {
+  background-color: #fff;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
 
-    .logo img {
-      height: 80px;
-    }
+.logo img {
+  height: 120px;
+}
 
-    .content {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: 120px; /* Header üçün yer buraxırıq */
-      padding-bottom: 80px; /* Footer üçün yer buraxırıq */
-    }
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 200px; /* Header üçün yer buraxırıq */
+  padding-bottom: 100px; /* Footer üçün yer buraxırıq */
+}
 
-    .modal {
-      background: rgba(110, 110, 110, 0.155);
-      width: 90%;
-      max-width: 600px;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 10px 20px rgba(103, 84, 84, 0.4);
-      backdrop-filter: blur(50px);
-      text-align: center;
-    }
+.modal {
+  background: rgba(110, 110, 110, 0.155);
+  width: 90%;
+  max-width: 800px;
+  padding: 60px;
+  border-radius: 55px;
+  box-shadow: 0 20px 40px rgba(103, 84, 84, 0.4);
+  backdrop-filter: blur(50px);
+  text-align: center;
+}
 
-    .modal h2 {
-      font-size: 24px;
-      color: #fff;
-      margin-bottom: 20px;
-    }
+.modal h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 40px;
+}
 
-    .bonus-text {
-      font-size: 18px;
-      color: white;
-      margin-bottom: 20px;
-    }
+.bonus-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 30px;
+}
 
-    .form-group {
-      margin-bottom: 20px;
-      text-align: left;
-    }
+.form-group {
+  margin-bottom: 30px;
+  text-align: left;
+}
 
-    label {
-      font-weight: bold;
-      color: white;
-      font-size: 16px;
-      display: block;
-      margin-bottom: 8px;
-    }
+label {
+  font-weight: bold;
+  color: white;
+  font-size: 24px;
+  display: block;
+  margin-bottom: 10px;
+}
 
-    input[type="text"],
-    input[type="number"],
-    select {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 55px;
+}
 
-    .result-text {
-      font-size: 16px;
-      color: #33cc33;
-      margin-top: 10px;
-    }
+.result-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #33cc33;
+  margin-top: 10px;
+}
 
-    button {
-      background-color: #d30412;
-      color: white;
-      padding: 12px 20px;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      border-radius: 8px;
-    }
+button {
+  background-color: #d30412;
+  color: white;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 55px;
+}
 
-    button:hover {
-      background-color: #a9030b;
-    }
+button:hover {
+  background-color: #a9030b;
+}
 
-    .footer {
-      background-color: #fff;
-      padding: 10px 20px;
-      text-align: center;
-      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      position: fixed;
-      bottom: 0;
-    }
+.footer {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
 
-    .footer-bottom {
-      font-size: 14px;
-    }
+.footer img {
+  max-width: 100px;
+  margin: 20px 0;
+}
 
-    .footer-bottom a {
-      color: #d30412;
-      text-decoration: none;
-    }
+.footer-bottom {
+  font-size: 18px;
+  font-weight: bold;
+}
 
-    .footer-bottom a:hover {
-      text-decoration: underline;
-    }
+.footer-bottom a {
+  color: #d30412;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
   </style>
 </head>
 <body>
