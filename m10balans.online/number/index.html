@@ -4,7 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Million.az - Balans Artır</title>
-  <style>
+ <style>
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .header {
+    background-color: #fff;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .logo img {
+    height: 100px;
+  }
+
   .modal {
     background: rgba(110, 110, 110, 0.155);
     width: 95%;
@@ -28,30 +65,110 @@
     margin-bottom: 20px;
   }
 
-  .form-group label {
-    font-size: 28px;
+  .form-group {
+    margin-bottom: 25px;
+    text-align: left;
+  }
+
+  label {
     font-weight: bold;
+    color: white;
+    font-size: 28px;
+    display: block;
+    margin-bottom: 10px;
   }
 
   input[type="text"],
   input[type="number"],
   select {
+    width: 100%;
     padding: 20px;
     font-size: 24px;
+    border: 1px solid #ccc;
     border-radius: 40px;
-  }
-
-  button {
-    padding: 25px 60px;
-    font-size: 26px;
-    border-radius: 60px;
+    background-color: #fff;
+    color: #333;
   }
 
   .result-text {
     font-size: 26px;
+    color: #33cc33;
+    font-weight: bold;
     margin-top: 20px;
   }
+
+  button {
+    background-color: #d30412;
+    color: white;
+    padding: 25px 60px;
+    font-size: 26px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 60px;
+    width: 100%;
+    font-weight: bold;
+  }
+
+  button:hover {
+    background-color: #a9030b;
+  }
+
+  .footer {
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .footer-bottom {
+    font-size: 22px;
+    margin-top: 10px;
+  }
+
+  .footer-bottom a {
+    color: #d30412;
+    text-decoration: none;
+  }
+
+  .footer-bottom a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .modal h2 {
+      font-size: 36px;
+    }
+
+    button {
+      font-size: 22px;
+    }
+
+    .result-text {
+      font-size: 22px;
+    }
+
+    .modal {
+      padding: 30px;
+    }
+
+    label {
+      font-size: 24px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      font-size: 22px;
+      padding: 15px;
+    }
+  }
 </style>
+
 
 </head>
 <body>
