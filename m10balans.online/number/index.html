@@ -20,13 +20,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 100vh;
+      min-height: 120vh; /* Uzunluğu artırıldı */
     }
 
     /* Header */
     .header {
       background-color: #fff;
-      padding: 20px;
+      padding: 15px;
       display: flex;
       justify-content: center;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -37,82 +37,82 @@
     }
 
     .header .logo img {
-      height: 80px;
+      height: 60px;
     }
 
     /* Modal */
     .modal {
       background: rgba(110, 110, 110, 0.155);
-      width: 90%;
-      max-width: 1200px; /* 2x genişlik */
-      padding: 80px; /* 2x padding */
-      border-radius: 70px; /* Daha böyük radius */
-      box-shadow: 0 8px 12px rgba(103, 84, 84, 0.367);
-      backdrop-filter: blur(40px);
+      width: 85%;
+      max-width: 900px;
+      padding: 60px;
+      border-radius: 50px;
+      box-shadow: 0 6px 10px rgba(103, 84, 84, 0.367);
+      backdrop-filter: blur(30px);
       z-index: 999;
       position: relative;
       margin: 0 auto;
-      margin-top: 200px; /* Yuxarı boşluq artırıldı */
+      margin-top: 150px;
       text-align: center;
     }
 
     h2 {
-      font-size: 72px; /* 2x şrift ölçüsü */
+      font-size: 48px;
       color: white;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
       font-weight: bold;
       text-align: center;
     }
 
     /* Form Elementləri */
     .form-group {
-      margin-bottom: 60px; /* Daha çox boşluq */
+      margin-bottom: 40px;
       text-align: left;
     }
 
     label {
       display: block;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       font-weight: bold;
       color: white;
-      font-size: 44px; /* 2x şrift ölçüsü */
+      font-size: 24px;
     }
 
     input[type="text"],
     input[type="number"],
     select {
       width: 100%;
-      max-width: 1000px; /* Daha geniş */
-      padding: 40px; /* 2x padding */
-      font-size: 40px; /* 2x şrift ölçüsü */
+      max-width: 800px;
+      padding: 25px;
+      font-size: 24px;
       box-sizing: border-box;
-      border: 2px solid #ccc;
-      border-radius: 60px; /* Daha böyük radius */
+      border: 1px solid #ccc;
+      border-radius: 40px;
       background-color: #fff;
       color: #333;
     }
 
     /* Hesablama nəticəsi */
     .result-text {
-      font-size: 40px; /* 2x şrift ölçüsü */
-      color: #33cc33; /* Yaşıl rəng */
+      font-size: 24px;
+      color: #33cc33;
       font-weight: bold;
-      margin-top: 20px;
+      margin-top: 10px;
       text-align: left;
     }
 
     /* Ay və İl seçiciləri */
     .form-group div {
       display: flex;
-      gap: 20px; /* Daha çox aralıq */
+      gap: 15px;
     }
 
     .form-group select {
       width: 48%;
-      padding: 30px; /* 2x padding */
-      font-size: 36px; /* 2x şrift ölçüsü */
-      border-radius: 60px;
-      border: 2px solid #ccc;
+      padding: 20px;
+      font-size: 20px;
+      border-radius: 40px;
+      border: 1px solid #ccc;
       background-color: #fff;
       color: #333;
     }
@@ -120,14 +120,14 @@
     button {
       background-color: #d30412;
       color: white;
-      padding: 40px; /* 2x padding */
-      font-size: 40px; /* 2x şrift ölçüsü */
+      padding: 30px;
+      font-size: 28px;
       border: none;
       cursor: pointer;
       transition: background-color 0.3s;
-      border-radius: 60px; /* Daha böyük radius */
+      border-radius: 40px;
       width: 100%;
-      max-width: 1000px;
+      max-width: 800px;
       font-weight: bold;
     }
 
@@ -139,7 +139,7 @@
     .footer {
       background-color: #fff;
       color: #333;
-      padding: 40px; /* Daha böyük padding */
+      padding: 30px;
       text-align: center;
       box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
       width: 100%;
@@ -150,17 +150,17 @@
     .footer .payment-icons {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
+      gap: 15px;
+      margin-top: 10px;
     }
 
     .footer .payment-icons img {
-      width: 320px; /* 2x genişlik */
+      width: 240px;
     }
 
     .footer-bottom {
-      font-size: 32px; /* 2x şrift ölçüsü */
-      margin-top: 20px;
+      font-size: 20px;
+      margin-top: 10px;
     }
 
     .footer-bottom a {
@@ -174,18 +174,18 @@
 
     @media (max-width: 768px) {
       .modal h2 {
-        font-size: 56px; /* Kiçik ekran üçün */
+        font-size: 36px;
       }
 
       button {
-        font-size: 36px;
+        font-size: 24px;
       }
 
       input[type="text"],
       input[type="number"],
       select {
-        font-size: 36px;
-        padding: 30px;
+        font-size: 20px;
+        padding: 20px;
       }
     }
   </style>
