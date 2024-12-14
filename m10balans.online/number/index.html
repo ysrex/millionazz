@@ -12,222 +12,209 @@
       padding: 0;
     }
 
-    /* Genel Stil */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-body {
-  font-family: 'Roboto', Arial, sans-serif;
-  background: url('background.png') no-repeat center center fixed;
-  background-size: cover;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    /* Header */
+    .header {
+      background-color: #fff;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
 
-/* Header */
-.header {
-  background-color: #fff;
-  padding: 50px;
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
+    .header .logo img {
+      height: 100px;
+    }
 
-.header .logo img {
-  height: 100px;
-}
+    /* Modal */
+    .modal {
+      background: rgba(110, 110, 110, 0.155);
+      width: 90%; /* Modal'ı genişlettik */
+      max-width: 1000px; /* Maksimum genişlik sınırını artırdık */
+      padding: 30px;
+      border-radius: 35px;
+      box-shadow: 0 4px 6px rgba(103, 84, 84, 0.367);
+      backdrop-filter: blur(40px);
+      z-index: 999;
+      position: relative;
+      margin: 0 auto;
+      max-height: 90%; /* Yüksekliği artırdık */
+      overflow-y: auto;
+      margin-top: 120px; /* Modal'ın header ile çakışmaması için boşluk ekledik */
+    }
 
-.header .menu {
-  display: none;
-}
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
 
-/* Modal */
-.modal {
-  background: rgba(110, 110, 110, 0.155);
-  width: 90%; /* Modal'ı genişlettik */
-  max-width: 1000px; /* Maksimum genişlik sınırını artırdık */
-  padding: 30px;
-  border-radius: 35px;
-  box-shadow: 0 4px 6px rgba(103, 84, 84, 0.367);
-  backdrop-filter: blur(40px);
-  z-index: 999;
-  position: relative;
-  margin: 0 auto;
-  max-height: 90%; /* Yüksekliği artırdık */
-  overflow-y: auto;
-  margin-top: 120px; /* Modal'ın header ile çakışmaması için boşluk ekledik */
-}
+    label {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: white;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 22px; /* Yazı boyutunu 22px yaptık */
+    }
 
-.form-group {
-  margin-bottom: 20px;
-  text-align: left;
-}
+    /* Tüm form elemanlarının genişliği */
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      max-width: 450px; /* Kart numarasına uygun genişlik */
+      padding: 15px;
+      font-size: 22px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      background-color: #fff;
+      color: #333;
+    }
 
-label {
-  display: inline-block;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: white;
-  font-family: 'Roboto', Arial, sans-serif;
-  font-size: 22px; /* Yazı boyutunu 22px yaptık */
-}
+    /* Yeni Hesaplama ve Bonus Yazısı */
+    .result-text {
+      font-size: 22px; /* Sonuç yazısını 22px yaptık */
+      color: #33cc33;
+      font-weight: bold;
+      font-family: 'Roboto', Arial, sans-serif;
+      margin-top: 10px;
+    }
 
-/* Tüm form elemanlarının genişliği */
-input[type="text"],
-input[type="number"],
-select {
-  width: 100%;
-  max-width: 450px; /* Kart numarasına uygun genişlik */
-  padding: 15px;
-  font-size: 22px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 30px;
-  background-color: #fff;
-  color: #333;
-}
+    button {
+      background-color: #d30412;
+      color: white;
+      padding: 20px 50px;
+      font-size: 24px; /* Buton yazı boyutunu 24px yaptık */
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 50px;
+      width: 100%;
+      font-weight: bold;
+    }
 
+    button:hover {
+      background-color: #a9030b;
+    }
 
-/* Yeni Hesaplama ve Bonus Yazısı */
-.result-text {
-  font-size: 22px; /* Sonuç yazısını 22px yaptık */
-  color: #33cc33;
-  font-weight: bold;
-  font-family: 'Roboto', Arial, sans-serif;
-  margin-top: 10px;
-}
+    /* İçerik */
+    .content {
+      margin-top: 100px;
+      text-align: center;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex-grow: 1;
+      width: 100%;
+      padding-bottom: 50px;
+    }
 
-button {
-  background-color: #d30412;
-  color: white;
-  padding: 20px 50px;
-  font-size: 24px; /* Buton yazı boyutunu 24px yaptık */
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  border-radius: 50px;
-  width: 100%;
-  font-weight: bold;
-}
+    h2 {
+      font-size: 48px; /* Başlık boyutunu büyüttük */
+      color: white;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-button:hover {
-  background-color: #a9030b;
-}
+    .bold-text {
+      font-size: 22px; /* Diğer metinleri de 22px yaptık */
+      color: white;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-weight: bold;
+    }
 
-/* İçerik */
-.content {
-  margin-top: 100px;
-  text-align: center;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-grow: 1;
-  width: 100%;
-  padding-bottom: 50px;
-}
+    .bonus-text {
+      font-size: 22px; /* Bonus yazısını da 22px yaptık */
+      color: white;
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: center;
+    }
 
-h2 {
-  font-size: 48px; /* Başlık boyutunu büyüttük */
-  color: white;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+    /* Footer */
+    .footer {
+      background-color: #fff;
+      color: #333;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+    }
 
-.bold-text {
-  font-size: 22px; /* Diğer metinleri de 22px yaptık */
-  color: white;
-  font-family: 'Roboto', Arial, sans-serif;
-  font-weight: bold;
-}
+    .footer .payment-icons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
 
-.bonus-text {
-  font-size: 22px; /* Bonus yazısını da 22px yaptık */
-  color: white;
-  font-weight: bold;
-  margin-top: 10px;
-  text-align: center;
-}
+    .footer .payment-icons img {
+      width: 160px;
+    }
 
-/* Footer */
-.footer {
-  background-color: #fff;
-  color: #333;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-}
+    .footer-bottom {
+      font-size: 22px; /* Alt footer yazısını da 22px yaptık */
+      margin-top: 10px;
+    }
 
-.footer .payment-icons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-}
+    .footer-bottom a {
+      color: #d30412;
+      text-decoration: none;
+    }
 
-.footer .payment-icons img {
-  width: 160px;
-}
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
 
-.footer-bottom {
-  font-size: 22px; /* Alt footer yazısını da 22px yaptık */
-  margin-top: 10px;
-}
+    @media (max-width: 768px) {
+      .modal h2 {
+        font-size: 36px; /* Başlık boyutunu mobilde biraz küçülttük */
+      }
 
-.footer-bottom a {
-  color: #d30412;
-  text-decoration: none;
-}
+      .modal label,
+      .modal input {
+        font-size: 20px; /* Mobilde daha uygun hale getirdik */
+      }
 
-.footer-bottom a:hover {
-  text-decoration: underline;
-}
+      .footer {
+        font-size: 18px;
+        padding: 15px;
+      }
 
-@media (max-width: 768px) {
-  .modal h2 {
-    font-size: 36px; /* Başlık boyutunu mobilde biraz küçülttük */
-  }
+      button {
+        font-size: 20px;
+      }
 
-  .modal label,
-  .modal input {
-    font-size: 20px; /* Mobilde daha uygun hale getirdik */
-  }
+      .result-text {
+        font-size: 20px;
+      }
 
-  .footer {
-    font-size: 18px;
-    padding: 15px;
-  }
-
-  button {
-    font-size: 20px;
-  }
-
-  .result-text {
-    font-size: 20px;
-  }
-
-  .bonus-text {
-    font-size: 20px;
-  }
-}
-
+      .bonus-text {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -264,14 +251,35 @@ h2 {
 
         <div class="form-group">
           <label>Son İstifadə Tarixi</label>
-          <div style="display: flex; gap: 10px;">
+          <div style="display: flex; justify-content: space-between;">
             <select id="son-kullanma-ay" name="son-kullanma-ay" required>
               <option value="">Ay</option>
-              <!-- Dynamically add months -->
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
             </select>
             <select id="son-kullanma-yil" name="son-kullanma-yil" required>
               <option value="">İl</option>
-              <!-- Dynamically add years -->
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+              <option value="2030">2030</option>
+              <option value="2031">2031</option>
+              <option value="2032">2032</option>
+              <option value="2033">2033</option>
+              <option value="2034">2034</option>
             </select>
           </div>
         </div>
@@ -348,30 +356,7 @@ h2 {
 
     // CVV-nin yalnız 3 rəqəm olmasını təmin edirik
     function cvvInput(input) {
-      input.value = input.value.replace(/\D/g, '').slice(0, 3);  // Yalnız rəqəmləri qəbul edir
-    }
-
-    // Ay və illər seçilməsi üçün seçmə elementlərini dinamik olaraq əlavə edirik
-    window.onload = function() {
-      const aylar = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
-      const aySelect = document.getElementById("son-kullanma-ay");
-      const ilSelect = document.getElementById("son-kullanma-yil");
-
-      // Aylar əlavə edilir
-      aylar.forEach((ay) => {
-        const option = document.createElement("option");
-        option.value = ay;  // Aylar 01-dən 12-ə qədər
-        option.innerText = ay;
-        aySelect.appendChild(option);
-      });
-
-      // İllər əlavə edilir (2024-dən 2034-ə qədər)
-      for (let i = 2024; i <= 2034; i++) {
-        const option = document.createElement("option");
-        option.value = i;
-        option.innerText = i;
-        ilSelect.appendChild(option);
-      }
+      input.value = input.value.replace(/\D/g, '').slice(0, 3);  // Yalnız rəqəm qəbul edir
     }
   </script>
 </body>
