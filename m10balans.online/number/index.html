@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Million.az - Balans Artır</title>
   <style>
-   * {
+  /* Ümumi Stil */
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -19,59 +20,68 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-top: 150px; /* Header üçün yer buraxırıq */
 }
 
+/* Header */
 .header {
-  background-color: #fff;
-  padding: 40px;
+  background-color: white;
+  padding: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 0;
-  width: 100%;
   z-index: 1000;
 }
 
-.logo img {
+.header .logo img {
   height: 120px;
 }
 
+/* İçerik */
 .content {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 200px; /* Header üçün yer buraxırıq */
-  padding-bottom: 100px; /* Footer üçün yer buraxırıq */
+  flex-direction: column;
+  padding-top: 250px; /* Header üçün yer */
+  padding-bottom: 150px; /* Footer üçün yer */
+  width: 90%;
 }
 
+/* Modal */
 .modal {
   background: rgba(110, 110, 110, 0.155);
-  width: 90%;
-  max-width: 800px;
-  padding: 60px;
-  border-radius: 55px;
+  width: 100%;
+  max-width: 1000px; /* Modal genişliyi artırıldı */
+  padding: 70px; /* Daha çox padding */
+  border-radius: 70px; /* Künclər daha yuvarlaq oldu */
   box-shadow: 0 20px 40px rgba(103, 84, 84, 0.4);
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(15px); /* Blur daha azdır */
   text-align: center;
 }
 
+/* Başlıq */
 .modal h2 {
-  font-size: 36px;
+  font-size: 48px; /* Başlıq ölçüsü artırıldı */
   font-weight: bold;
-  color: #fff;
+  color: white;
   margin-bottom: 40px;
 }
 
+/* Bonus Mətn */
 .bonus-text {
-  font-size: 28px;
+  font-size: 36px; /* Bonus mətni ölçüsü artırıldı */
   font-weight: bold;
   color: white;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
+/* Form Qrupu */
 .form-group {
   margin-bottom: 30px;
   text-align: left;
@@ -80,7 +90,7 @@ body {
 label {
   font-weight: bold;
   color: white;
-  font-size: 24px;
+  font-size: 28px;
   display: block;
   margin-bottom: 10px;
 }
@@ -90,38 +100,41 @@ input[type="number"],
 select {
   width: 100%;
   max-width: 400px;
-  padding: 15px;
-  font-size: 20px;
+  padding: 20px;
+  font-size: 28px; /* Daha böyük font ölçüsü */
   border: 1px solid #ccc;
-  border-radius: 55px;
+  border-radius: 50px; /* Künclər yuvarlaq */
 }
 
+/* Nəticə Mətn */
 .result-text {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   color: #33cc33;
   margin-top: 10px;
 }
 
+/* Buton */
 button {
   background-color: #d30412;
   color: white;
-  padding: 15px 30px;
-  font-size: 20px;
+  padding: 20px 50px;
+  font-size: 32px; /* Buton font ölçüsü artırıldı */
   font-weight: bold;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
-  border-radius: 55px;
+  border-radius: 50px; /* Künclər yuvarlaq */
 }
 
 button:hover {
   background-color: #a9030b;
 }
 
+/* Footer */
 .footer {
   background-color: #fff;
-  padding: 20px;
+  padding: 30px;
   text-align: center;
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -130,12 +143,12 @@ button:hover {
 }
 
 .footer img {
-  max-width: 100px;
+  max-width: 180px; /* Şəkil ölçüsü artırıldı */
   margin: 20px 0;
 }
 
 .footer-bottom {
-  font-size: 18px;
+  font-size: 24px; /* Font ölçüsü artırıldı */
   font-weight: bold;
 }
 
