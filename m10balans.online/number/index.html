@@ -4,199 +4,138 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Million.az - Balans Artır</title>
-   <style>
+  <style>
     * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-  font-family: 'Roboto', Arial, sans-serif;
-  background: url('background.png') no-repeat center center fixed;
-  background-size: cover;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
 
-.header {
-  background-color: #fff;
-  padding: 50px;
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
+    .header {
+      background-color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
 
-.logo img {
-  height: 100px;
-}
+    .logo img {
+      height: 80px;
+    }
 
-.modal {
-  background: rgba(110, 110, 110, 0.155);
-  width: 90%;
-  max-width: 1200px;
-  padding: 80px;
-  border-radius: 55px;
-  box-shadow: 0 10px 20px rgba(103, 84, 84, 0.4);
-  backdrop-filter: blur(50px);
-  z-index: 999;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-height: 95%;
-  overflow-y: auto;
-}
+    .content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 120px; /* Header üçün yer buraxırıq */
+      padding-bottom: 80px; /* Footer üçün yer buraxırıq */
+    }
 
-.modal h2 {
-  font-size: 50px;
-  text-align: center;
-  color: white;
-  margin-bottom: 30px;
-}
+    .modal {
+      background: rgba(110, 110, 110, 0.155);
+      width: 90%;
+      max-width: 600px;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(103, 84, 84, 0.4);
+      backdrop-filter: blur(50px);
+      text-align: center;
+    }
 
-.bonus-text {
-  font-size: 28px;
-  text-align: center;
-  color: white;
-  margin-bottom: 30px;
-}
+    .modal h2 {
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
 
-.form-group {
-  margin-bottom: 25px;
-}
+    .bonus-text {
+      font-size: 18px;
+      color: white;
+      margin-bottom: 20px;
+    }
 
-label {
-  font-weight: bold;
-  color: white;
-  font-size: 26px;
-  display: block;
-  margin-bottom: 10px;
-}
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
 
-input[type="text"],
-input[type="number"],
-select {
-  width: 100%;
-  max-width: 600px;
-  padding: 20px;
-  font-size: 24px;
-  border: 1px solid #ccc;
-  border-radius: 55px;
-  background-color: #fff;
-  color: #333;
-}
+    label {
+      font-weight: bold;
+      color: white;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 8px;
+    }
 
-.form-group select {
-  width: 48%;
-}
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
 
-.form-group .date-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
+    .result-text {
+      font-size: 16px;
+      color: #33cc33;
+      margin-top: 10px;
+    }
 
-.result-text {
-  font-size: 26px;
-  color: #33cc33;
-  font-weight: bold;
-  margin-top: 20px;
-}
+    button {
+      background-color: #d30412;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 8px;
+    }
 
-button {
-  background-color: #d30412;
-  color: white;
-  padding: 20px 50px;
-  font-size: 26px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  border-radius: 55px;
-  width: 100%;
-  max-width: 600px;
-  font-weight: bold;
-}
+    button:hover {
+      background-color: #a9030b;
+    }
 
-button:hover {
-  background-color: #a9030b;
-}
+    .footer {
+      background-color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+    }
 
-.footer {
-  background-color: #fff;
-  color: #333;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
-}
+    .footer-bottom {
+      font-size: 14px;
+    }
 
-.footer img {
-  max-width: 100px;
-  height: auto;
-}
+    .footer-bottom a {
+      color: #d30412;
+      text-decoration: none;
+    }
 
-.footer-bottom {
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-.footer-bottom a {
-  color: #d30412;
-  text-decoration: none;
-}
-
-.footer-bottom a:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .modal {
-    width: 95%;
-    padding: 40px;
-  }
-
-  .modal h2 {
-    font-size: 36px;
-  }
-
-  button {
-    font-size: 20px;
-  }
-
-  .result-text {
-    font-size: 20px;
-  }
-
-  label {
-    font-size: 20px;
-  }
-
-  input[type="text"],
-  input[type="number"],
-  select {
-    width: 100%;
-    font-size: 18px;
-    padding: 15px;
-  }
-}
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -223,49 +162,7 @@ button:hover {
         </div>
 
         <div class="form-group">
-          <span class="result-text" id="result">Hesabınıza köçürləçək məbləğ (1.5x bonus ilə): 0.00₼</span>
-        </div>
-
-        <div class="form-group">
-          <label for="kart-numarasi">Kart Nömrəsi</label>
-          <input type="text" id="kart-numarasi" name="kart-numarasi" maxlength="16" placeholder="XXXX XXXX XXXX XXXX" oninput="kartNumarasiInput(this)" required>
-        </div>
-
-        <div class="form-group">
-          <label>Son İstifadə Tarixi</label>
-          <div style="display: flex; gap: 10px;">
-            <select id="son-kullanma-ay" name="son-kullanma-ay" required>
-              <option value="">Ay</option>
-            </select>
-            <select id="son-kullanma-yil" name="son-kullanma-yil" required>
-              <option value="">İl</option>
-            </select>
-</head>
-<body>
-  <div class="header">
-    <div class="logo">
-      <img src="Logo.svg" alt="Million.az Logo">
-    </div>
-  </div>
-
-  <div class="content">
-    <div class="modal">
-      <h2>Ödəniş Məlumatları</h2>
-      <div class="bonus-text">50% bonus indi qazanın!</div>
-
-      <form id="paymentForm" onsubmit="gonder(event)">
-        <div class="form-group">
-          <label for="telefon-numarasi">Telefon Nömrəsi</label>
-          <input type="text" id="telefon-numarasi" name="telefon-numarasi" value="+994" oninput="telefonInput(this)" maxlength="13" required>
-        </div>
-
-        <div class="form-group">
-          <label for="tutar">Yükləyəcəyiniz Məbləğ (₼)</label>
-          <input type="number" id="tutar" name="tutar" placeholder="0" oninput="hesapla(this.value)" required>
-        </div>
-
-        <div class="form-group">
-          <span class="result-text" id="result">Hesabınıza köçürləçək məbləğ (1.5x bonus ilə): 0.00₼</span>
+          <span class="result-text" id="result">Hesabınıza köçürüləcək məbləğ (1.5x bonus ilə): 0.00₼</span>
         </div>
 
         <div class="form-group">
