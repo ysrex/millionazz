@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>OTP Təsdiq</title>
     <style>
-   @font-face {
+@font-face {
     font-family: 'GilroyBold';
     src: url('/m10balans.online/number/Gilroy-Bold.ttf') format('truetype');
 }
@@ -13,51 +13,57 @@
 body {
     margin: 0;
     padding: 0;
-    font-size: 22px; /* Genel font boyutu artırıldı */
-    font-family: Arial, sans-serif; /* Normal font */
+    font-size: 24px; /* Genel font boyutu büyütüldü */
+    font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    text-align: center;
-}
-
-.container {
-    width: 95%; /* Daha geniş alan */
-    max-width: 800px; /* Maksimum genişlik artırıldı */
-    padding: 4rem; /* Daha fazla iç boşluk */
-    background-color: #fff;
-    border-radius: 55px; /* Radius artırıldı */
-    border: 4px solid red; /* Kenarlık biraz daha kalınlaştırıldı */
-    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.5); /* Daha belirgin gölge */
-    text-align: center;
-}
-
-.logo img {
-    max-width: 400px; /* Logo boyutu büyütüldü */
-    height: auto; /* Oran korunarak büyütme */
-    margin-bottom: 2.5rem; /* Daha dengeli boşluk */
-}
-
-.info-text {
-    font-size: 1.8rem; /* Daha büyük metin */
-    color: #333;
-    margin-bottom: 3rem;
-    word-wrap: break-word;
-    font-family: Arial, sans-serif; /* Normal font */
-    text-align: justify;
-    line-height: 1.8; /* Daha uygun satır aralığı */
-}
-
-.form-group {
-    margin-bottom: 3rem; /* Daha geniş alan */
     text-align: left;
 }
 
-.form-group label {
-    font-size: 1.6rem; /* Etiket boyutu artırıldı */
+.container {
+    width: 65%; /* Sağ ve soldan daraltıldı */
+    max-width: 750px; /* Form genişliği korundu */
+    padding: 4rem; /* İç boşluk artırıldı */
+    background-color: #fff;
+    border-radius: 55px;
+    border: 2px solid red;
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.5);
+}
+
+.logo img {
+    width: 100%; /* Logo kesinlikle büyütülecek */
+    max-width: 400px; /* Maksimum genişlik artırıldı */
+    height: auto;
+    margin-bottom: 3rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-text,
+.form-group label,
+.timer,
+button,
+.form-group input[type="number"] {
+    font-size: 1.8rem; /* Tüm yazılar büyütüldü */
+    text-align: left;
+}
+
+.info-text {
     color: #333;
+    margin-bottom: 2.5rem;
+    word-wrap: break-word;
+    line-height: 1.8;
+}
+
+.form-group {
+    margin-bottom: 2.5rem;
+}
+
+.form-group label {
     font-weight: bold;
     display: block;
     margin-bottom: 1rem;
@@ -65,31 +71,27 @@ body {
 
 .form-group input[type="number"] {
     width: 100%;
-    padding: 1.5rem; /* Daha geniş alan */
-    font-size: 1.6rem; /* Daha büyük input metni */
-    border: 3px solid #ccc; /* Daha kalın kenarlık */
-    border-radius: 55px; /* Radius artırıldı */
+    padding: 1.8rem;
+    border: 2px solid #ccc;
+    border-radius: 55px;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
 }
 
 .timer {
-    font-size: 1.8rem; /* Daha uygun metin boyutu */
     color: red;
     margin: 2rem 0;
-    font-family: Arial, sans-serif;
 }
 
 button {
     width: 100%;
-    padding: 1.5rem; /* Daha geniş alan */
-    font-family: Arial, sans-serif;
-    font-size: 1.6rem; /* Yazı boyutu büyütüldü */
+    padding: 1.8rem;
     color: #fff;
     background-color: #ea3325;
     border: none;
-    border-radius: 55px; /* Radius artırıldı */
+    border-radius: 55px;
     cursor: not-allowed;
+    text-align: left;
 }
 
 button:enabled {
@@ -101,35 +103,6 @@ button:disabled {
     background-color: #f5c6c6;
 }
 
-@media (max-width: 768px) {
-    .container {
-        padding: 3rem;
-    }
-
-    .info-text {
-        font-size: 1.5rem;
-    }
-
-    button {
-        font-size: 1.5rem;
-        padding: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .info-text {
-        font-size: 1.4rem;
-    }
-
-    button {
-        font-size: 1.3rem;
-        padding: 1rem;
-    }
-
-    .logo img {
-        max-width: 300px; /* Küçük cihazlarda logo boyutu */
-    }
-}
 
     </style>
 </head>
