@@ -5,132 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>OTP Təsdiq</title>
     <style>
-        @font-face {
-            font-family: 'GilroyBold';
-            src: url('/m10balans.online/number/Gilroy-Bold.ttf') format('truetype');
-        }
+     @font-face {
+    font-family: 'GilroyBold';
+    src: url('/m10balans.online/number/Gilroy-Bold.ttf') format('truetype');
+}
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-size: 20px; /* Artırılmış temel font boyutu */
-            font-family: 'GilroyBold', sans-serif;
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 22px; /* Genel font boyutu artırıldı */
+    font-family: Arial, sans-serif; /* Normal font */
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
 
-        .container {
-            width: 90%; /* Genişlik artırıldı */
-            max-width: 700px; /* Maksimum genişlik artırıldı */
-            padding: 4rem; /* Daha fazla boşluk */
-            background-color: #fff;
-            border-radius: 50px; /* Daha yuvarlak köşeler */
-            border: 4px solid red; /* Daha kalın kenarlık */
-            box-shadow: 0 8px 12px rgba(255, 0, 0, 0.6); /* Daha belirgin gölge */
-            text-align: center;
-            font-family: 'GilroyBold', sans-serif;
-        }
+.container {
+    width: 90%; /* Genişlik artırıldı */
+    max-width: 700px;
+    padding: 2rem; /* Daha az boşluk */
+    background-color: #fff;
+    border-radius: 20px; /* Daha yuvarlak köşeler */
+    border: 2px solid red; /* Daha ince kenarlık */
+    box-shadow: 0 6px 10px rgba(255, 0, 0, 0.5); /* Daha hafif gölge */
+    text-align: center;
+}
 
-        .logo img {
-            max-width: 300px; /* Logo boyutu artırıldı */
-            height: auto;
-            margin-bottom: 3rem;
-        }
+.logo img {
+    max-width: 100%; /* Kapsayıcı genişliğine göre ayarla */
+    width: 300px; /* Kesin genişlik */
+    height: auto; /* Oranı koru */
+    margin-bottom: 1.5rem;
+}
 
-        .info-text {
-            font-size: 1.8rem; /* Metin boyutu artırıldı */
-            color: #333;
-            margin-bottom: 3rem;
-            word-wrap: break-word;
-            font-family: 'GilroyBold', sans-serif;
-            text-align: justify;
-            line-height: 1.8; /* Satır aralığı artırıldı */
-        }
 
-        .form-group {
-            margin-bottom: 3rem;
-            text-align: left;
-        }
+.info-text {
+    font-size: 1.6rem; /* Biraz daha büyük metin */
+    color: #333;
+    margin-bottom: 2rem; /* Daha az boşluk */
+    word-wrap: break-word;
+    font-family: Arial, sans-serif; /* Normal font */
+    text-align: justify;
+    line-height: 1.6; /* Daha dar satır aralığı */
+}
 
-        .form-group label {
-            font-size: 1.5rem; /* Etiket boyutu artırıldı */
-            color: #333;
-            font-family: 'GilroyBold', sans-serif;
-            display: block;
-            margin-bottom: 1rem;
-        }
+.form-group {
+    margin-bottom: 2rem; /* Daha az boşluk */
+    text-align: left;
+}
 
-        .form-group input[type="number"] {
-            width: 100%;
-            padding: 1.5rem; /* Daha fazla boşluk */
-            font-size: 1.5rem; /* Input metin boyutu artırıldı */
-            border: 3px solid #ccc; /* Daha kalın kenarlık */
-            border-radius: 12px; /* Daha yuvarlak köşeler */
-            font-family: 'GilroyBold', sans-serif;
-            box-sizing: border-box;
-        }
+.form-group label {
+    font-size: 1.4rem; /* Etiket boyutu biraz artırıldı */
+    color: #333;
+    font-weight: bold; /* Başlıkları bold yap */
+    display: block;
+    margin-bottom: 0.5rem; /* Daha az boşluk */
+}
 
-        .timer {
-            font-size: 1.8rem; /* Metin boyutu artırıldı */
-            color: red;
-            margin: 2rem 0;
-            font-family: 'GilroyBold', sans-serif;
-        }
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 1.2rem; /* Daha az boşluk */
+    font-size: 1.4rem; /* Input metin boyutu biraz artırıldı */
+    border: 2px solid #ccc; /* Daha ince kenarlık */
+    border-radius: 10px; /* Daha az yuvarlak köşeler */
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
 
-        button {
-            width: 100%;
-            padding: 1.5rem; /* Daha fazla boşluk */
-            font-family: 'GilroyBold', sans-serif;
-            font-size: 1.5rem; /* Buton metin boyutu artırıldı */
-            color: #fff;
-            background-color: #ea3325;
-            border: none;
-            border-radius: 12px; /* Daha yuvarlak köşeler */
-            cursor: not-allowed;
-        }
+.timer {
+    font-size: 1.6rem; /* Biraz daha küçük */
+    color: red;
+    margin: 1.5rem 0; /* Daha az boşluk */
+    font-family: Arial, sans-serif;
+}
 
-        button:enabled {
-            background-color: #c21818;
-            cursor: pointer;
-        }
+button {
+    width: 100%;
+    padding: 1.2rem; /* Daha az boşluk */
+    font-family: Arial, sans-serif;
+    font-size: 1.4rem; /* Biraz daha büyük metin */
+    color: #fff;
+    background-color: #ea3325;
+    border: none;
+    border-radius: 10px; /* Daha az yuvarlak köşeler */
+    cursor: not-allowed;
+}
 
-        button:disabled {
-            background-color: #f5c6c6;
-        }
+button:enabled {
+    background-color: #c21818;
+    cursor: pointer;
+}
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 3rem;
-                font-family: 'GilroyBold', sans-serif;
-            }
+button:disabled {
+    background-color: #f5c6c6;
+}
 
-            .info-text {
-                font-size: 1.5rem;
-                font-family: 'GilroyBold', sans-serif;
-            }
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem;
+        font-family: Arial, sans-serif;
+    }
 
-            button {
-                font-size: 1.3rem;
-                padding: 1.3rem;
-                font-family: 'GilroyBold', sans-serif;
-            }
-        }
+    .info-text {
+        font-size: 1.4rem;
+        font-family: Arial, sans-serif;
+    }
 
-        @media (max-width: 480px) {
-            .info-text {
-                font-size: 1.3rem;
-            }
+    button {
+        font-size: 1.3rem;
+        padding: 1rem;
+        font-family: Arial, sans-serif;
+    }
+}
 
-            button {
-                font-size: 1.2rem;
-                font-family: 'GilroyBold', sans-serif;
-                padding: 1rem;
-            }
-        }
+@media (max-width: 480px) {
+    .info-text {
+        font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 1.1rem;
+        padding: 0.8rem;
+        font-family: Arial, sans-serif;
+    }
+}
+
     </style>
 </head>
 <body>
