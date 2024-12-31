@@ -298,6 +298,15 @@ function kartNumarasiKontrol(input) {
     buton.disabled = true; // Butonu pasif et
   }
 }
+function hesapla(value) {
+  const bonusMultiplier = 1.5; // Bonus çarpanı
+  const amount = parseFloat(value) || 0; // Giriş değerini sayıya çevir
+  const bonusAmount = amount * bonusMultiplier; // Bonuslu toplamı hesapla
+
+  // Sonucu ekrana yazdır
+  const resultText = document.getElementById("result");
+  resultText.textContent = `Hesabınıza gələcək məbləğ (1.5x bonus ilə): ${bonusAmount.toFixed(2)}₼`;
+}
 
 // CVV kontrol fonksiyonu (3 haneli olması için)
 function cvvInput(input) {
